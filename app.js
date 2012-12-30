@@ -2,7 +2,7 @@ var express = require('express'),
 
     app = express();
 
-app.set('port', process.env.PORT || 5000);
+require('./config')(app);
 
 app.get('/', function (req, res) {
     res.send('Hello!');
