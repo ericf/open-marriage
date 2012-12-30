@@ -1,0 +1,17 @@
+{
+    "name"       : "leslie-eric.us",
+    "description": "The official website for Leslie Verloegen's and Eric Ferraiuolo's wedding.",
+    "homepage"   : "http://leslie-eric.us/",
+    "version"    : "0.0.1",
+    "private"    : true,
+
+    "author": "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
+    "main"  : "server",
+
+    "engines": {
+        "node": "0.8.x",
+        "npm" : "1.1.x"
+    },
+
+    "dependencies": {}
+}
