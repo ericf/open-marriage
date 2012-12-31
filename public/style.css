@@ -10,18 +10,42 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1 {
-    font-family: "futura-pt", sans-serif;
-    font-size: 5em;
-    font-weight: 300;
+.ann {
+    font-family: "jubilat", serif;
+    font-weight: 400;
+    font-size: 1.25em;
+    line-height: 1.25;
+    margin-top: 0.5em;
+}
+.ann > * {
+    display: block;
     text-align: center;
 }
-h1 span {
-    display: block;
-}
-h1 .amp {
-    font-family: "jubilat", serif;
-    font-size: 1.25em;
-    font-weight: 200;
+.ann-msg {
     line-height: 1.0;
+}
+.ann-name {
+    font-family: "futura-pt", sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+}
+.ann-sep {
+    font-size: 2.5em;
+    line-height: 1.0;
+}
+.ann-msg,
+.ann-sep {
+    color: #aaa;
+}
+
+@media screen and (min-width: 480px) {
+    .ann {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 568px) {
+    .ann {
+        font-size: 2em;
+    }
 }
