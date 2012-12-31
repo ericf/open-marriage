@@ -82,6 +82,14 @@
           }
         }
       }
+    },
+    "pg": {
+      "version": "0.10.2",
+      "dependencies": {
+        "generic-pool": {
+          "version": "2.0.2"
+        }
+      }
     }
   }
 }
