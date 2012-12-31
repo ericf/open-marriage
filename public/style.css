@@ -1,0 +1,27 @@
+body {
+    line-height: 1.5;
+    background: #fdfdfd;
+    color: #222;
+}
+
+[data-icon]:before {
+    font-family: 'Pictos Custom';
+    content: attr(data-icon);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    font-family: "futura-pt", sans-serif;
+    font-size: 4em;
+    font-weight: 300;
+    text-align: center;
+}
+h1 span {
+    display: block;
+}
+h1 .amp {
+    font-family: "jubilat", serif;
+    font-size: 1.25em;
+    font-weight: 200;
+    line-height: 1.0;
+}
