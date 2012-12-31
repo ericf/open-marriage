@@ -18,11 +18,9 @@ module.exports = function (app) {
 
     app.enable('strict routing');
 
-    app.set('port', env.PORT || 5000);
-    app.set('typekit', env.TYPEKIT);
-    app.set('pictos', env.PICTOS);
-
     app.locals({
-        title: 'Leslie’s & Eric’s Wedding'
+        title  : 'Leslie’s & Eric’s Wedding',
+        typekit: env.TYPEKIT,
+        pictos : env.PICTOS
     });
 };
