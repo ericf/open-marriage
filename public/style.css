@@ -49,3 +49,9 @@ body {
         font-size: 2em;
     }
 }
+
+@media screen and (min-width: 800px) {
+    .ann {
+        font-size: 2.5em;
+    }
+}
