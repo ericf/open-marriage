@@ -11,11 +11,9 @@ module.exports = function (app) {
     };
 
     app.set('name', 'Leslie-Eric Wedding');
-
     app.set('dirs', dirs);
     app.set('views', dirs.views);
     app.set('layout', path.join(dirs.views, 'layouts/main'));
-
     app.enable('strict routing');
 
     app.locals({

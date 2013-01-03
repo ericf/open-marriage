@@ -3,12 +3,15 @@ var express = require('express'),
     path    = require('path'),
     pg      = require('pg'),
 
+    configure  = require('./config'),
     middleware = require('./lib/middleware'),
 
     env = process.env,
     app = express();
 
-require('./config')(app);
+// -- Config -------------------------------------------------------------------
+
+configure(app);
 
 app.engine('hbs', hbs.express3({
     defaultLayout: app.get('layout'),
@@ -16,6 +19,8 @@ app.engine('hbs', hbs.express3({
 }));
 
 app.set('view engine', 'hbs');
+
+// -- Middleware ---------------------------------------------------------------
 
 if (app.get('env') === 'development') {
     app.use(express.logger('tiny'));
@@ -35,6 +40,8 @@ if (app.get('env') === 'development') {
 } else {
     app.use(express.errorHandler());
 }
+
+// -- Routes -------------------------------------------------------------------
 
 app.get('/', function (req, res) {
     res.render('home');
