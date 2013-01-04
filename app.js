@@ -1,12 +1,11 @@
 var express = require('express'),
     hbs     = require('express-hbs'),
     path    = require('path'),
-    pg      = require('pg'),
 
     configure  = require('./config'),
     middleware = require('./lib/middleware'),
+    routes     = require('./lib/routes'),
 
-    env = process.env,
     app = express();
 
 // -- Config -------------------------------------------------------------------
@@ -38,27 +37,15 @@ if (app.get('env') === 'development') {
         showStack     : true
     }));
 } else {
-    app.use(express.errorHandler());
+    app.use(express.errorHandler({
+        dumpExceptions: false,
+        showStack     : false
+    }));
 }
 
 // -- Routes -------------------------------------------------------------------
 
-app.get('/', function (req, res) {
-    res.render('home');
-});
-
-app.get('/people/', function (req, res, next) {
-    pg.connect(env.DATABASE_URL, function(err, db) {
-        if (err) { return next(err); }
-
-        db.query('SELECT * FROM people', function (err, result) {
-            if (err) { return next(err); }
-
-            res.render('people', {
-                people: result.rows
-            });
-        });
-    });
-});
+app.get('/',        routes.home);
+app.get('/people/', routes.people);
 
 module.exports = app;
