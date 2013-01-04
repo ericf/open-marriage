@@ -7,13 +7,18 @@
     <title>{{title}}</title>
 
     <link rel="stylesheet" href="/vendor/normalize.css" />
-    <!-- link rel="stylesheet" href="//get.pictos.cc/fonts/{{pictos}}" / -->
     <link rel="stylesheet" href="/style.css" />
 
+  {{#if pictos}}
+    <link rel="stylesheet" href="//get.pictos.cc/fonts/{{pictos}}" />
+  {{/if}}
+
+  {{#if typekit}}
     <script src="//use.typekit.net/{{typekit}}.js"></script>
     <script>
         try { Typekit.load(); } catch (e) {}
     </script>
+  {{/if}}
 </head>
 <body>
 
