@@ -1,8 +1,7 @@
 var express = require('express'),
-    hbs     = require('express-hbs'),
-    path    = require('path'),
 
     configure  = require('./config'),
+    exphbs     = require('./lib/express-handlebars'),
     middleware = require('./lib/middleware'),
     routes     = require('./lib/routes'),
 
@@ -12,8 +11,9 @@ var express = require('express'),
 
 configure(app);
 
-app.engine('hbs', hbs.express3({
+app.engine('hbs', exphbs({
     defaultLayout: app.get('layout'),
+    extname      : '.hbs',
     partialsDir  : app.get('dirs').partials
 }));
 
@@ -37,10 +37,7 @@ if (app.get('env') === 'development') {
         showStack     : true
     }));
 } else {
-    app.use(express.errorHandler({
-        dumpExceptions: false,
-        showStack     : false
-    }));
+    app.use(express.errorHandler());
 }
 
 // -- Routes -------------------------------------------------------------------

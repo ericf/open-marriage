@@ -1,13 +1,12 @@
 var path = require('path'),
 
-    appRoot = process.cwd(),
-    env     = process.env;
+    env = process.env;
 
 module.exports = function (app) {
     var dirs = {
-        pub     : path.join(appRoot, 'public/'),
-        views   : path.join(appRoot, 'views/'),
-        partials: path.join(appRoot, 'views/partials/')
+        pub     : path.resolve('public/'),
+        views   : path.resolve('views/'),
+        partials: path.resolve('views/partials/')
     };
 
     app.set('name', 'Leslie-Eric Wedding');
