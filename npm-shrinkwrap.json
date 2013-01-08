@@ -2,9 +2,6 @@
   "name": "leslie-eric.us",
   "version": "0.0.1",
   "dependencies": {
-    "async": {
-      "version": "0.1.22"
-    },
     "express": {
       "version": "3.0.5",
       "dependencies": {
@@ -65,41 +62,49 @@
         }
       }
     },
-    "glob": {
-      "version": "3.1.14",
+    "express3-handlebars": {
+      "version": "0.1.0",
       "dependencies": {
-        "minimatch": {
-          "version": "0.2.9",
+        "async": {
+          "version": "0.1.22"
+        },
+        "glob": {
+          "version": "3.1.14",
           "dependencies": {
-            "lru-cache": {
-              "version": "2.0.4"
+            "minimatch": {
+              "version": "0.2.9",
+              "dependencies": {
+                "lru-cache": {
+                  "version": "2.0.4"
+                },
+                "sigmund": {
+                  "version": "1.0.0"
+                }
+              }
             },
-            "sigmund": {
+            "graceful-fs": {
+              "version": "1.1.14"
+            },
+            "inherits": {
               "version": "1.0.0"
             }
           }
         },
-        "graceful-fs": {
-          "version": "1.1.14"
-        },
-        "inherits": {
-          "version": "1.0.0"
-        }
-      }
-    },
-    "handlebars": {
-      "version": "1.0.7",
-      "dependencies": {
-        "optimist": {
-          "version": "0.3.5",
+        "handlebars": {
+          "version": "1.0.7",
           "dependencies": {
-            "wordwrap": {
-              "version": "0.0.2"
+            "optimist": {
+              "version": "0.3.5",
+              "dependencies": {
+                "wordwrap": {
+                  "version": "0.0.2"
+                }
+              }
+            },
+            "uglify-js": {
+              "version": "1.2.6"
             }
           }
-        },
-        "uglify-js": {
-          "version": "1.2.6"
         }
       }
     },

@@ -1,7 +1,7 @@
 var express = require('express'),
+    exphbs  = require('express3-handlebars'),
 
     configure  = require('./config'),
-    exphbs     = require('./lib/express-handlebars'),
     middleware = require('./lib/middleware'),
     routes     = require('./lib/routes'),
 

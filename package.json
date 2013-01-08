@@ -14,10 +14,8 @@
     },
 
     "dependencies": {
-        "async"     : "~0.1",
-        "express"   : "3.x",
-        "glob"      : "3.x",
-        "handlebars": "1.x",
-        "pg"        : "~0.10"
+        "express"            : "3.x",
+        "express3-handlebars": "latest",
+        "pg"                 : "~0.10"
     }
 }
