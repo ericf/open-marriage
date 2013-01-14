@@ -1,4 +1,5 @@
 var path = require('path'),
+    yui  = require('./yui'),
 
     env = process.env;
 
@@ -18,6 +19,8 @@ module.exports = function (app) {
     app.locals({
         title  : 'Leslie’s & Eric’s Wedding',
         typekit: env.TYPEKIT,
-        pictos : env.PICTOS
+        pictos : env.PICTOS,
+        yui    : yui,
+        min    : env.NODE_ENV === 'production' ? '-min' : ''
     });
 };
