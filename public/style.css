@@ -4,18 +4,38 @@ body {
     color: #222;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "jubilat", serif;
+    font-weight: 400;
+}
+
 [data-icon]:before {
     font-family: 'Pictos Custom';
     content: attr(data-icon);
     -webkit-font-smoothing: antialiased;
 }
 
+.l-grid {
+    letter-spacing: -0.31em;
+    *letter-spacing: normal;
+    word-spacing: -0.43em;
+}
+.l-inline,
+.l-grid-u {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.l-grid-u {
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+}
+
 .ann {
-    font-family: "jubilat", serif;
-    font-weight: 400;
     font-size: 1.25em;
     line-height: 1.25;
-    margin-top: 1em;
+    margin: 1em 0;
 }
 .ann > * {
     display: block;
@@ -36,6 +56,61 @@ body {
 .ann-msg,
 .ann-sep {
     color: #aaa;
+}
+
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 1em 0;
+    position: relative;
+}
+.timeline:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 0.5em;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    margin-left: -0.25em;
+    background: #ccc;
+}
+.timeline:after {
+    content: 'h';
+    font-family: 'Pictos Custom';
+    font-size: 3em;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    z-index: -1;
+    top: -0.5em;
+    left: -0.0417em;
+    width: 100%;
+    text-align: center;
+    color: #ccc;
+}
+
+.event {
+    margin: 2em 0;
+    box-sizing: border-box;
+    display: block;
+    padding: 0.5em;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #ddd;
+    background: #fff;
+}
+.event-title {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+.event-photo {
+    height: 200px;
+    background: #ccc;
+    margin: 0 -0.5em;
+}
+.event-map {
+    margin: 0 -0.5em;
+    height: 300px;
 }
 
 @media screen and (min-width: 480px) {
