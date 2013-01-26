@@ -19,7 +19,6 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.31em;
     *letter-spacing: normal;
     word-spacing: -0.43em;
-    box-sizing: border-box;
 }
 .l-inline,
 .l-grid-u {
@@ -31,6 +30,11 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: normal;
     word-spacing: normal;
     vertical-align: top;
+}
+.l-grid,
+.l-grid-u {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -159,18 +163,75 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .event {
+        clear: both;
         padding-left: 1em;
         padding-right: 1em;
-    }
-    .event-leslie {
-        margin-right: 4em;
-    }
-    .event-eric {
-        margin-left: 4em;
     }
     .event-photo,
     .event-map {
         margin: 0 -1em;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .event {
+        clear: both;
+    }
+    .event-leslie,
+    .event-eric {
+        clear: none;
+        width: 23em;
+        position: relative;
+    }
+    .event-leslie {
+        float: left;
+        margin: 0 1em 2em 0;
+    }
+    .event-eric {
+        float: right;
+        margin: 0 0 2em 1em;
+    }
+    .event-leslie:before,
+    .event-leslie:after,
+    .event-eric:before,
+    .event-eric:after {
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+        border: solid transparent;
+    }
+    .event-leslie:before,
+    .event-eric:before {
+        top: 14px;
+        border-width: 12px;
+    }
+    .event-leslie:after,
+    .event-eric:after {
+        top: 15px;
+        border-width: 11px;
+    }
+    .event-leslie:before {
+        left: 100%;
+        border-left-color: #ddd;
+    }
+    .event-leslie:after {
+        left: 100%;
+        border-left-color: #fff;
+    }
+    .event-eric:before {
+        right: 100%;
+        border-right-color: #ddd;
+    }
+    .event-eric:after {
+        right: 100%;
+        border-right-color: #fff;
+    }
+    .event-leslie + .event-eric {
+        margin-top: 2em;
+    }
+    .event-eric + .event-leslie {
+        margin-top: 2em;
     }
 }
 
@@ -179,16 +240,6 @@ h1, h2, h3, h4, h5, h6 {
         border-left: 1px solid;
         border-right: 1px solid;
         border-color: #ddd;
-    }
-    .event-leslie {
-        display: inline-block;
-        width: 23em;
-        margin: 1em 1em 1em 0;
-    }
-    .event-eric {
-        display: inline-block;
-        width: 23em;
-        margin: 1em 0 1em 1em;
     }
 }
 
