@@ -6,12 +6,34 @@
 </h1>
 
 <ol class="timeline l-grid">
-    <li class="event l-grid-u">
-        <h2 class="event-title">Got Engaged</h2>
-        <div class="event-photo"></div>
-    </li>
-    <li class="event l-grid-u">
-        <h2 class="event-title">Moved in Together</h2>
-        <div class="event-map" data-map="ericf.map-jd99sgvf"></div>
-    </li>
+  {{#event "Got Engagement"
+        time="November 30, 2012"
+        photo="/photos/engagement.jpg"
+        alt="Photo of Leslie and Eric in their apartment."}}
+    {{> event/header}}
+    {{> event/photo}}
+    {{> event/time}}
+  {{/event}}
+
+  {{#event "Graduated from BU"
+        who="leslie"
+        time="January 25, 2012"}}
+    {{> event/header}}
+    {{> event/time}}
+  {{/event}}
+
+  {{#event "Started at Yahoo!"
+        who="eric"
+        time="August 1, 2011"}}
+    {{> event/header}}
+    {{> event/time}}
+  {{/event}}
+
+  {{#event "Moved in Together"
+        time="August 15, 2009"
+        map="ericf.map-jd99sgvf"}}
+    {{> event/header}}
+    {{> event/map}}
+    {{> event/time}}
+  {{/event}}
 </ol>

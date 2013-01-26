@@ -2,6 +2,7 @@ var express = require('express'),
     exphbs  = require('express3-handlebars'),
 
     configure  = require('./config'),
+    helpers    = require('./lib/helpers'),
     middleware = require('./lib/middleware'),
     routes     = require('./lib/routes'),
 
@@ -14,6 +15,7 @@ configure(app);
 app.engine('hbs', exphbs({
     defaultLayout: app.get('layout'),
     extname      : '.hbs',
+    helpers      : helpers,
     partialsDir  : app.get('dirs').partials
 }));
 
