@@ -2,6 +2,31 @@
   "name": "leslie-eric.us",
   "version": "0.0.1",
   "dependencies": {
+    "db-migrate": {
+      "version": "0.3.1",
+      "dependencies": {
+        "optimist": {
+          "version": "0.3.5",
+          "dependencies": {
+            "wordwrap": {
+              "version": "0.0.2"
+            }
+          }
+        },
+        "async": {
+          "version": "0.1.22"
+        },
+        "semver": {
+          "version": "1.0.14"
+        },
+        "mkdirp": {
+          "version": "0.3.4"
+        },
+        "moment": {
+          "version": "1.7.2"
+        }
+      }
+    },
     "express": {
       "version": "3.0.5",
       "dependencies": {
