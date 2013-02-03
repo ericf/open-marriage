@@ -1,39 +1,52 @@
 var express = require('express'),
     exphbs  = require('express3-handlebars'),
 
-    configure  = require('./config'),
+    config     = require('./config'),
     helpers    = require('./lib/helpers'),
     middleware = require('./lib/middleware'),
     routes     = require('./lib/routes'),
 
     app = express();
 
-// -- Config -------------------------------------------------------------------
+// -- Configure ----------------------------------------------------------------
 
-configure(app);
+app.set('name', 'Leslie-Eric Wedding');
+app.set('env', config.env);
+app.set('port', config.port);
+app.set('views', config.dirs.views);
+app.set('view engine', 'hbs');
+
+app.enable('strict routing');
 
 app.engine('hbs', exphbs({
-    defaultLayout: app.get('layout'),
+    defaultLayout: 'main',
     extname      : '.hbs',
     helpers      : helpers,
-    partialsDir  : app.get('dirs').partials
+    layoutsDir   : config.dirs.layouts,
+    partialsDir  : config.dirs.partials
 }));
 
-app.set('view engine', 'hbs');
+app.locals({
+    title  : 'Leslie’s & Eric’s Wedding',
+    typekit: config.typekit,
+    pictos : config.pictos,
+    yui    : config.yui,
+    min    : config.isProduction ? '-min' : ''
+});
 
 // -- Middleware ---------------------------------------------------------------
 
-if (app.get('env') === 'development') {
+if (config.isDevelopment) {
     app.use(express.logger('tiny'));
 }
 
 app.use(express.compress());
 app.use(express.favicon());
-app.use(express.static(app.get('dirs').pub));
+app.use(express.static(config.dirs.pub));
 app.use(app.router);
 app.use(middleware.slash);
 
-if (app.get('env') === 'development') {
+if (config.isDevelopment) {
     app.use(express.errorHandler({
         dumpExceptions: true,
         showStack     : true
