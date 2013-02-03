@@ -59,7 +59,7 @@ if (config.isDevelopment) {
 
 // -- Routes -------------------------------------------------------------------
 
-app.get('/',        routes.home);
-app.get('/people/', routes.people);
+app.get('/',                 routes.home);
+app.get('/rsvp/:invitation', routes.rsvp.invitation);
 
 module.exports = app;
