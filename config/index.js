@@ -3,11 +3,16 @@ var env  = process.env,
 
 module.exports = Object.freeze({
     env          : env.NODE_ENV,
-    isProduction : env.NODE_ENV === 'production',
     isDevelopment: env.NODE_ENV !== 'production',
+    isProduction : env.NODE_ENV === 'production',
 
     database: env.DATABASE_URL,
     port    : env.PORT || 5000,
+
+    secrets: Object.freeze({
+        invitation: env.INVITATION_SECRET,
+        session   : env.SESSION_SECRET
+    }),
 
     dirs: Object.freeze({
         pub     : path.resolve('public/'),

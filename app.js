@@ -42,9 +42,11 @@ if (config.isDevelopment) {
 
 app.use(express.compress());
 app.use(express.favicon());
-app.use(express.static(config.dirs.pub));
+app.use(express.cookieParser());
+app.use(express.session({secret: config.secrets.session}));
 app.use(app.router);
 app.use(middleware.slash);
+app.use(express.static(config.dirs.pub));
 
 if (config.isDevelopment) {
     app.use(express.errorHandler({
