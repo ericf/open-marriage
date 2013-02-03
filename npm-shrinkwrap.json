@@ -2,6 +2,9 @@
   "name": "leslie-eric.us",
   "version": "0.0.1",
   "dependencies": {
+    "async": {
+      "version": "0.1.22"
+    },
     "db-migrate": {
       "version": "0.3.1",
       "dependencies": {
