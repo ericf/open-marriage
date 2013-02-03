@@ -12,9 +12,9 @@ exports.up = function (db, callback) {
 
             invitation_id: 'int',
 
-            title: 'text',
-            name : 'text',
-            email: 'text',
+            title: {type: 'string', length: 8},
+            name : {type: 'string', length: 64},
+            email: {type: 'string', length: 128},
 
             is_attending: 'boolean',
             is_plusone  : {type: 'boolean', defaultValue: false}
