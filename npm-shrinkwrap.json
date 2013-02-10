@@ -91,13 +91,10 @@
       }
     },
     "express3-handlebars": {
-      "version": "0.1.2",
+      "version": "0.2.2",
       "dependencies": {
-        "async": {
-          "version": "0.1.22"
-        },
         "glob": {
-          "version": "3.1.14",
+          "version": "3.1.20",
           "dependencies": {
             "minimatch": {
               "version": "0.2.9",
@@ -111,28 +108,28 @@
               }
             },
             "graceful-fs": {
-              "version": "1.1.14"
+              "version": "1.2.0"
             },
             "inherits": {
               "version": "1.0.0"
             }
           }
-        },
-        "handlebars": {
-          "version": "1.0.7",
+        }
+      }
+    },
+    "handlebars": {
+      "version": "1.0.7",
+      "dependencies": {
+        "optimist": {
+          "version": "0.3.5",
           "dependencies": {
-            "optimist": {
-              "version": "0.3.5",
-              "dependencies": {
-                "wordwrap": {
-                  "version": "0.0.2"
-                }
-              }
-            },
-            "uglify-js": {
-              "version": "1.2.6"
+            "wordwrap": {
+              "version": "0.0.2"
             }
           }
+        },
+        "uglify-js": {
+          "version": "1.2.6"
         }
       }
     },

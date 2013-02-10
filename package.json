@@ -18,6 +18,7 @@
         "db-migrate"         : "0.3.x",
         "express"            : "3.x",
         "express3-handlebars": "latest",
+        "handlebars"         : "1.0.7",
         "pg"                 : "~0.10"
     }
 }
