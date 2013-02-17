@@ -43,7 +43,11 @@ if (config.isDevelopment) {
 app.use(express.compress());
 app.use(express.favicon());
 app.use(express.cookieParser());
-app.use(express.session({secret: config.secrets.session}));
+app.use(express.cookieSession({secret: config.secrets.session}));
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(express.methodOverride());
+app.use(express.csrf());
 app.use(app.router);
 app.use(middleware.slash);
 app.use(express.static(config.dirs.pub));
@@ -59,7 +63,14 @@ if (config.isDevelopment) {
 
 // -- Routes -------------------------------------------------------------------
 
-app.get('/',                 routes.home);
-app.get('/rsvp/:invitation', routes.rsvp.invitation);
+app.get('/', routes.home);
+
+app.get('/rsvp/',            routes.rsvp.edit);
+app.get('/rsvp/:invitation', routes.rsvp.login);
+
+app.put('/invitations/:invitation/', [
+    middleware.auth.ensureInvitation,
+    routes.invitations.update
+]);
 
 module.exports = app;
