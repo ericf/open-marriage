@@ -1,26 +1,27 @@
-var path = require('path'),
-    yui  = require('./yui'),
+var env  = process.env,
+    path = require('path');
 
-    env = process.env;
+module.exports = Object.freeze({
+    env          : env.NODE_ENV,
+    isDevelopment: env.NODE_ENV !== 'production',
+    isProduction : env.NODE_ENV === 'production',
 
-module.exports = function (app) {
-    var dirs = {
+    database: env.DATABASE_URL,
+    port    : env.PORT || 5000,
+
+    secrets: Object.freeze({
+        invitation: env.INVITATION_SECRET,
+        session   : env.SESSION_SECRET
+    }),
+
+    dirs: Object.freeze({
         pub     : path.resolve('public/'),
         views   : path.resolve('views/'),
+        layouts : path.resolve('views/layouts/'),
         partials: path.resolve('views/partials/')
-    };
+    }),
 
-    app.set('name', 'Leslie-Eric Wedding');
-    app.set('dirs', dirs);
-    app.set('views', dirs.views);
-    app.set('layout', path.join(dirs.views, 'layouts/main'));
-    app.enable('strict routing');
-
-    app.locals({
-        title  : 'Leslie’s & Eric’s Wedding',
-        typekit: env.TYPEKIT,
-        pictos : env.PICTOS,
-        yui    : yui,
-        min    : env.NODE_ENV === 'production' ? '-min' : ''
-    });
-};
+    typekit: env.TYPEKIT,
+    pictos : env.PICTOS,
+    yui    : require('./yui')
+});
