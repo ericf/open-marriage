@@ -134,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 .event-header {
     margin-top: 0;
     margin-bottom: 0.4em;
-    padding-right: 2em;
+    padding-right: 2.5em;
     font-size: 1.25em;
 }
 .event-title {
@@ -145,8 +145,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
     color: #aaa;
     text-align: right;
-    width: 2em;
-    margin-right: -2em;
+    width: 2.5em;
+    margin-right: -2.5em;
+}
+.event-person-sep {
+    font-family: "jubilat", serif;
+    font-weight: 400;
+    margin: 0 0.15em;
 }
 .event-time {
     margin-top: 0.5em;
