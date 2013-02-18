@@ -3,7 +3,7 @@
 {{#with invitation}}
 <p>{{id}}</p>
 <p>{{address}}</p>
-<p>{{rsvpd}}</p>
+<p>RSVP'd: {{rsvpd}}</p>
 
 {{#if guests}}
 <b>Guests:</b>
@@ -18,19 +18,6 @@
     <input type="hidden" name="_method" value="PUT" />
     <input type="hidden" name="_csrf" value="{{../csrf}}" />
 
-    <p>
-        <label>
-            <input type="radio" name="rsvp" value="true"
-                    {{#rsvpdYes}}checked="checked"{{/rsvpdYes}} />
-            You are attending
-        </label>
-        <br />
-        <label>
-            <input type="radio" name="rsvp" value="false"
-                    {{#rsvpdNo}}checked="checked"{{/rsvpdNo}} />
-            You are <em>not</em> attending
-        </label>
-    </p>
     <p><input type="submit" value="Save" /></p>
 </form>
 {{/with}}
