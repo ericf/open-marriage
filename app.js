@@ -30,7 +30,6 @@ app.locals({
     title: 'Leslie & Eric',
 
     nav: [
-        {id: 'us',      url: '/',         label: 'Us'},
         {id: 'wedding', url: '/wedding/', label: 'Wedding'}
     ],
 
