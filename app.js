@@ -27,7 +27,12 @@ app.engine('hbs', exphbs({
 }));
 
 app.locals({
-    title: 'Leslie’s & Eric’s Wedding',
+    title: 'Leslie & Eric',
+
+    nav: [
+        {id: 'us',      url: '/',         label: 'Us'},
+        {id: 'wedding', url: '/wedding/', label: 'Wedding'}
+    ],
 
     typekit: config.typekit,
     pictos : config.pictos,

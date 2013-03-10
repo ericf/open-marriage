@@ -1,0 +1,17 @@
+{{#if nav}}
+<nav class="nav l-grid-g">
+    <b class="brand l-grid-u" title="Leslie &amp; Eric">
+        <a href="/">L<span class="brand-sep l-inline">&amp;</span>E</a>
+    </b>
+
+    <div class="nav-items l-grid-u">
+        <ul class="nav-list l-gird-g">
+          {{#each nav}}
+            <li class="nav-item {{#if isActive}}is-nav-item-active{{/if}} l-grid-u">
+                <a href="{{url}}"><b>{{label}}</b></a>
+            </li>
+          {{/each}}
+        </ul>
+    </div>
+</nav>
+{{/if}}

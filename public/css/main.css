@@ -4,6 +4,7 @@ body {
     background: #fcfcfc;
     color: #222;
     font-family: "proxima-nova" sans-serif;
+    padding-top: 4em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,4 +43,67 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.brand {
+    margin-left: 0.6667em;
+    font-size: 1.5em;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 300;
+}
+.brand-sep {
+    font-family: "jubilat", serif;
+    font-weight: 400;
+    margin: 0 0.15em;
+}
+.brand a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    line-height: 2.6667;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 1px #ddd;
+    -moz-box-shadow: 0 1px 1px #ddd;
+    box-shadow: 0 1px 1px #ddd;
+    z-index: 10;
+}
+.nav-items {
+    vertical-align: middle;
+    margin-left: 1em;
+}
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav-item {
+    margin: 0 0.5em;
+    text-transform: uppercase;
+}
+.nav-item a {
+    display: block;
+    text-decoration: none;
+    font-size: 1.125em;
+    line-height: 1;
+    padding: 1.4444em 0.4444em 1.1111em;
+    color: #222;
+}
+.nav-item b {
+    font-weight: inherit;
+}
+.nav-item a:hover b,
+.nav-item a:active b,
+.is-nav-item-active b {
+    border-bottom: 1px solid #ddd;
+}
+
+.zoomer {
+    display: none !important;
 }

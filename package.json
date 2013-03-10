@@ -21,6 +21,7 @@
         "express"            : "3.x",
         "express-slash"      : "latest",
         "express3-handlebars": "latest",
+        "handlebars"         : "1.x",
         "pg"                 : "~0.10"
     }
 }

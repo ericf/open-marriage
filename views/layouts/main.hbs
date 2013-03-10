@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>{{title}}</title>
+    <title>{{pageTitle}}</title>
 
     {{addCSS "/css/main.css"         prepend=true}}
     {{addCSS "/vendor/normalize.css" prepend=true}}
@@ -25,6 +25,8 @@
   {{/if}}
 </head>
 <body>
+
+  {{> nav}}
 
 {{{body}}}
 
