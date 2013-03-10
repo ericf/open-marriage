@@ -74,4 +74,6 @@ app.put('/invitations/:invitation/', [
     routes.invitations.update
 ]);
 
+app.get('/combo', routes.combo);
+
 module.exports = app;

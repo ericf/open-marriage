@@ -15,6 +15,7 @@
 
     "dependencies": {
         "async"              : "0.1.x",
+        "combohandler"       : "0.2.x",
         "db-migrate"         : "0.3.x",
         "express"            : "3.x",
         "express-slash"      : "latest",
