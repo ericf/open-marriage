@@ -1,6 +1,6 @@
 var isProduction = process.env.NODE_ENV === 'production';
 
-module.exports = Object.freeze({
+module.exports = {
     version: '3.8.1',
 
     config: JSON.stringify({
@@ -21,4 +21,4 @@ module.exports = Object.freeze({
             }
         }
     })
-});
+};
