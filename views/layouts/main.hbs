@@ -6,8 +6,12 @@
 
     <title>{{title}}</title>
 
-    <link rel="stylesheet" href="/vendor/normalize.css" />
-    <link rel="stylesheet" href="/style.css" />
+    {{addCSS "/css/main.css"         prepend=true}}
+    {{addCSS "/vendor/normalize.css" prepend=true}}
+
+  {{#css}}
+    <link rel="stylesheet" href="{{{url}}}" />
+  {{/css}}
 
   {{#if pictos}}
     <link rel="stylesheet" href="//get.pictos.cc/fonts/{{pictos}}" />
@@ -23,7 +27,6 @@
 <body>
 
 {{{body}}}
-
 
   {{#if yui}}
     <script src="http://yui.yahooapis.com/{{yui.version}}/build/yui/yui{{min}}.js"></script>

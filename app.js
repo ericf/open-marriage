@@ -27,11 +27,16 @@ app.engine('hbs', exphbs({
 }));
 
 app.locals({
-    title  : 'Leslie’s & Eric’s Wedding',
+    title: 'Leslie’s & Eric’s Wedding',
+
     typekit: config.typekit,
     pictos : config.pictos,
     yui    : config.yui,
-    min    : config.isProduction ? '-min' : ''
+
+    isDevelopment: config.isDevelopment,
+    isProduction : config.isProduction,
+
+    min: config.isProduction ? '-min' : ''
 });
 
 // -- Middleware ---------------------------------------------------------------
