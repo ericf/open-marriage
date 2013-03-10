@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 .l-grid {
     letter-spacing: -0.31em;
     *letter-spacing: normal;
-    word-spacing: -0.43em;
+    *word-spacing: -0.43em;
 }
 .l-inline,
 .l-grid-u {
@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .l-grid-u {
     letter-spacing: normal;
-    word-spacing: normal;
+    *word-spacing: normal;
     vertical-align: top;
 }
 .l-grid,
