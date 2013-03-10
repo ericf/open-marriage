@@ -4,7 +4,7 @@ body {
     background: #fcfcfc;
     color: #222;
     font-family: "proxima-nova" sans-serif;
-    padding-top: 4em;
+    padding-top: 3em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,10 +46,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand {
-    margin-left: 0.6667em;
-    font-size: 1.5em;
+    font-size: 1.25em;
     font-family: "futura-pt", sans-serif;
     font-weight: 300;
+    line-height: 2.4;
+    margin-left: 0.4em;
 }
 .brand-sep {
     font-family: "jubilat", serif;
@@ -60,7 +61,6 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     color: #ddd;
     text-decoration: none;
-    line-height: 2.6667;
 }
 
 .nav {
@@ -75,8 +75,7 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 10;
 }
 .nav-items {
-    vertical-align: middle;
-    margin-left: 1em;
+    margin-left: 0.5em;
 }
 .nav-list {
     margin: 0;
@@ -84,15 +83,15 @@ h1, h2, h3, h4, h5, h6 {
     list-style: none;
 }
 .nav-item {
-    margin: 0 0.5em;
+    margin: 0 0.25em;
     text-transform: uppercase;
 }
 .nav-item a {
     display: block;
     text-decoration: none;
-    font-size: 1.125em;
+    font-size: 1em;
     line-height: 1;
-    padding: 1.4444em 0.4444em 1.1111em;
+    padding: 1.125em 0.25em 0.75em;
     color: #222;
 }
 .nav-item b {
@@ -106,4 +105,56 @@ h1, h2, h3, h4, h5, h6 {
 
 .zoomer {
     display: none !important;
+}
+
+/* 480px */
+@media screen and (min-width: 30em) {
+
+}
+
+/* 568px */
+@media screen and (min-width: 35.5em) {
+
+}
+
+/* 576px */
+@media screen and (min-width: 36em) {
+    .nav-items {
+        margin-left: 1em;
+    }
+
+    .nav-item {
+        margin: 0 0.5em;
+    }
+
+    .brand {
+        font-size: 1.5em;
+        line-height: 2;
+        margin-left: 0.6667em;
+    }
+
+    .nav-item a {
+        font-size: 1.125em;
+        padding: 1em 0.4444em 0.6667em;
+    }
+}
+
+/* 768px */
+@media screen and (min-width: 48em) {
+    body {
+        padding-top: 4em;
+    }
+
+    .brand {
+        line-height: 2.6667;
+    }
+
+    .nav-item a {
+        padding: 1.4444em 0.4444em 1.1111em;
+    }
+}
+
+/* 1024px */
+@media screen and (min-width: 64em) {
+
 }
