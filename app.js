@@ -49,7 +49,7 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.csrf());
 app.use(app.router);
-app.use(middleware.slash);
+app.use(middleware.slash());
 app.use(express.static(config.dirs.pub));
 
 if (config.isDevelopment) {
