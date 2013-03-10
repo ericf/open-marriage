@@ -17,6 +17,10 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-font-smoothing: antialiased;
 }
 
+.l-wrap {
+    position: relative;
+    background: #fcfcfc;
+}
 .l-grid {
     letter-spacing: -0.31em;
     *letter-spacing: normal;
