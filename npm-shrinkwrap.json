@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "dependencies": {
     "async": {
-      "version": "0.1.22"
+      "version": "0.2.6"
     },
     "combohandler": {
       "version": "0.2.0",
@@ -73,7 +73,7 @@
       }
     },
     "db-migrate": {
-      "version": "0.3.2",
+      "version": "0.4.1",
       "dependencies": {
         "optimist": {
           "version": "0.3.5",
@@ -83,6 +83,9 @@
             }
           }
         },
+        "async": {
+          "version": "0.1.22"
+        },
         "semver": {
           "version": "1.0.14"
         },
@@ -91,6 +94,9 @@
         },
         "moment": {
           "version": "1.7.2"
+        },
+        "pkginfo": {
+          "version": "0.3.0"
         }
       }
     },
@@ -158,8 +164,11 @@
       "version": "0.1.0"
     },
     "express3-handlebars": {
-      "version": "0.3.2",
+      "version": "0.4.0",
       "dependencies": {
+        "async": {
+          "version": "0.1.22"
+        },
         "glob": {
           "version": "3.1.21",
           "dependencies": {
@@ -204,10 +213,13 @@
       }
     },
     "pg": {
-      "version": "0.10.2",
+      "version": "0.14.1",
       "dependencies": {
         "generic-pool": {
-          "version": "2.0.2"
+          "version": "2.0.3"
+        },
+        "deprecate": {
+          "version": "0.1.0"
         }
       }
     }

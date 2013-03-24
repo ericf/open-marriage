@@ -14,14 +14,14 @@
     },
 
     "dependencies": {
-        "async"              : "0.1.x",
+        "async"              : "0.2.x",
         "combohandler"       : "0.2.x",
-        "db-migrate"         : "0.3.x",
+        "db-migrate"         : "0.4.x",
         "deep-freeze"        : "latest",
         "express"            : "3.x",
         "express-slash"      : "latest",
         "express3-handlebars": "latest",
         "handlebars"         : "1.x",
-        "pg"                 : "~0.10"
+        "pg"                 : "0.x"
     }
 }
