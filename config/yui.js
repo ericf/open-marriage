@@ -17,7 +17,7 @@ module.exports = {
 
             'lew-app': {
                 fullpath: '/app.js',
-                requires: ['node-base', 'mapbox']
+                requires: ['node-base', 'event-resize', 'graphics', 'mapbox']
             }
         }
     })

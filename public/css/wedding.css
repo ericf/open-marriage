@@ -27,8 +27,7 @@ body {
 .ann {
     font-size: 1.25em;
     line-height: 1.25;
-    margin: 0;
-    padding: 1em 0;
+    margin: 1.5em 0;
 }
 .ann > * {
     display: block;
@@ -45,10 +44,113 @@ body {
     font-size: 2em;
 }
 
+.cal {
+    white-space: nowrap;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    list-style: none;
+    max-width: 48em;
+    margin: 0 auto;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-left: 0;
+    border-right: 0;
+}
+.cal-day {
+    width: 80%;
+    white-space: normal;
+    position: relative;
+}
+.cal-day-primary {
+    border: 1px solid #ddd;
+    border-top: 0;
+    border-bottom: 0;
+}
+.cal-day-header {
+    margin: 0.5em 0;
+    text-align: right;
+    font-family: "proxima-nova" sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.0;
+}
+.cal-day-date {
+    margin-left: 0.5em;
+}
+
+#cal-day-circle {
+    right: -0.25em;
+}
+
+.travel-nav {
+    list-style: none;
+    margin: 0 auto 2em auto;
+    padding: 0;
+}
+.travel-nav-item {
+    width: 50%;
+}
+.travel-nav a {
+    display: block;
+    position: relative;
+    line-height: 3em;
+    color: inherit;
+    background: #eee;
+    font-weight: 700;
+}
+.travel-nav a:before {
+    position: absolute;
+    font-weight: 400;
+    color: #aaa;
+}
+.travel-nav-travel {
+    margin-right: 1px;
+    text-align: left;
+    padding-left: 3em;
+}
+.travel-nav-travel:before {
+    font-size: 2em;
+    top: 0.15em;
+    left: 0.25em;
+}
+.travel-nav-hotel {
+    margin-left: 1px;
+    text-align: right;
+    padding-right: 3em;
+}
+.travel-nav-hotel:before {
+    font-size: 2em;
+    top: 0.15em;
+    right: 0.25em;
+}
+
+.details-header {
+    margin-top: -1em;
+    padding-top: 2em;
+}
+.details-group .l-grid-u {
+    display: block;
+}
+.details address {
+    text-align: center;
+}
+.details-break {
+    width: 80%;
+    margin: 2em auto;
+    height: 1px;
+    line-height: 1px;
+    background: #ddd;
+    border-top: 1px solid #fcfcfc;
+}
+
 /* 480px */
 @media screen and (min-width: 30em) {
     .ann {
         font-size: 1.5em;
+    }
+
+    .cal-day {
+        width: 50%;
     }
 }
 
@@ -57,11 +159,76 @@ body {
     .ann {
         font-size: 2em;
     }
+
+    .travel-nav-travel,
+    .travel-nav-hotel {
+        text-align: center;
+        padding: 0;
+    }
+}
+
+/* 576px */
+@media screen and (min-width: 36em) {
+    #cal-day-circle {
+        right: 0.5em;
+    }
+
+    .travel-nav-travel:before {
+        font-size: 3em;
+        top: 0.15em;
+        left: 0.3333em;
+    }
+    .travel-nav-hotel:before {
+        font-size: 3em;
+        top: 0.15em;
+        right: 0.3333em;
+    }
+}
+
+/* 768px */
+@media screen and (min-width: 48em) {
+    .cal-day {
+        width: 33.3333%;
+    }
+
+    .details-header {
+        margin-top: -1.6667em;
+        padding-top: 2.6667em;
+    }
+    .details-group {
+        margin: 1em -1em;
+    }
+    .details-group .l-grid-u {
+        display: inline-block;
+        *display: inline;
+        width: 50%;
+        vertical-align: top;
+    }
+    .details-content {
+        margin: 0;
+        padding: 0 1em;
+    }
+    .details-content li {
+        margin-left: 2.5em;
+    }
+    .details address {
+        text-align: left;
+    }
+}
+
+/* 770px */
+@media screen and (min-width: 48.125em) {
+    .cal {
+        border-left: 1px solid;
+        border-right: 1px solid;
+        border-color: #ddd;
+    }
 }
 
 /* 1024px */
 @media screen and (min-width: 64em) {
     .ann {
         font-size: 2.5em;
+        margin: 1.2em 0;
     }
 }

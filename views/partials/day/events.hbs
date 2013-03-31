@@ -1,0 +1,8 @@
+{{#if events}}
+<dl class="cal-day-events">
+  {{#each events}}
+    <dt><b>{{start}} {{#if end}}&ndash; {{end}}{{/if}}</b></dt>
+    <dd><a href="#{{name}}">{{desc}}</a></dd>
+  {{/each}}
+</dl>
+{{/if}}

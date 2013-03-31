@@ -11,5 +11,242 @@
         <span class="ann-loc">Easton, MD</span>
     </h1>
 
+    <ol class="cal l-grid">
+        {{#day "Friday 4"}}
+            {{addDayEvent "evening-before"
+                start = "8pm"
+                end   = "1am"
+                desc  = "Drinks @ Washington St. Pub & Oyster Bar"}}
 
+            {{> day/header}}
+            {{> day/events}}
+        {{/day}}
+
+        {{#day "Saturday 5" primary=true}}
+            {{addDayEvent "ceremony"
+                start = "4:30pm"
+                desc  = "Wedding Ceremony"}}
+
+            {{addDayEvent "ceremony"
+                start = "5pm"
+                end   = "10pm"
+                desc  = "Reception"}}
+
+            {{> day/header}}
+            {{> day/events}}
+        {{/day}}
+
+        {{#day "Sunday 6"}}
+            {{addDayEvent "brunch"
+                start = "11am"
+                end   = "1pm"
+                desc  = "Light Brunch"}}
+
+            {{> day/header}}
+            {{> day/events}}
+        {{/day}}
+    </ol>
+
+    <ul class="travel-nav l-contain l-grid">
+        <li class="travel-nav-item l-grid-u">
+            <a class="travel-nav-travel" data-icon="p" href="#transportation">Get There</a>
+        </li>
+        <li class="travel-nav-item l-grid-u">
+            <a class="travel-nav-hotel" data-icon="b" href="#hotels">Stay There</a>
+        </li>
+    </ul>
+
+    <div class="details l-contain">
+        <h2 id="evening-before" class="details-header">
+            Drinks the Evening Before
+        </h2>
+
+        <div class="details-group l-grid">
+            <div class="l-grid-u">
+                <p class="details-content">
+                    If you arrive in Easton, MD by <b>Friday, October 4th</b> we would love for you to meet up with us as at:
+                </p>
+            </div>
+
+            <div class="l-grid-u">
+                <address class="details-content">
+                    <b><a href="http://washingtonstreetpub.com/">Washington Street Pub &amp; Oyster Bar</a></b><br>
+                    <a href="http://maps.apple.com/?q=20+N+Washington+St.+Easton,+MD+21601">
+                        20 N Washington St.<br>
+                        Easton, MD 21601
+                    </a>
+                </address>
+            </div>
+        </div>
+
+        <p>
+            The second floor balcony will be reserved for our group starting at <b>8:00pm</b>. Feel free to come early and enjoy a meal or later just for drinks. This is an informal gathering, but it would be great if we could get a rough estimate of who will be attending. Let us know if you think you will be in town. The bar accepts both cash and credit cards.
+        </p>
+
+
+        <h2 id="ceremony" class="details-header">
+            Ceremony &amp; Reception
+        </h2>
+
+        <div class="details-group l-grid">
+            <div class="l-grid-u">
+                <p class="details-content">
+                    The wedding ceremony will begin, <em>promptly</em>, on <b>Saturday at 4:30pm</b>. The ceremony and reception will be held at the home of Steve and Minda Goldberg:
+                </p>
+            </div>
+
+            <div class="l-grid-u">
+                <address class="details-content">
+                    <a href="http://maps.apple.com/?q=8290+Ingleton+Circle+Easton,+MD+21601">
+                        <b>Goldberg Residents</b><br>
+                        8290 Ingleton Circle<br>
+                        Easton, MD 21601
+                    </a>
+                </address>
+            </div>
+        </div>
+
+        <h2 id="brunch" class="details-header">
+            Brunch the Morning After
+        </h2>
+
+        <p>
+            An informal buffet of bagels and fixings will be served at the home of Steve and Minda Goldberg (the same location as the <a href="#ceremony">ceremony</a>) on <b>Sunday morning</b>. Stop by anytime between 11am and 1pm, before you head out of town.
+        </p>
+
+        <h2 id="transportation" class="details-header">
+            Transportation
+        </h2>
+
+        <p>
+            We understand that many of our guests will be traveling from out of state and we hope to provide you with all of the necessary information to make your travel to Maryland as easy as possible.
+        </p>
+
+        <h3>BWI</h3>
+        <p>
+            Easton and Saint Michael’s are rural towns on Maryland’s Eastern Shore. The best airport to fly into is <a href="http://maps.apple.com/?q=Baltimore/Washington+International+Airport"><b>Baltimore/Washington International (BWI)</b></a>. The drive from BWI to Easton, MD is a little over one hour (60 miles). In order to get between hotels and the wedding venue a car is necessary.
+        </p>
+
+        <h3>Shuttle from BWI to Easton</h3>
+        <p>
+            For those of you who are sharing cars, but who may not be arriving at the airport at the same time, there's the <a href="http://www.bayrunnershuttle.com/"><b>BayRunner Shuttle</b></a>.
+        </p>
+        <p>
+            This shuttle leaves every other hour from 8:30am to 8:30pm daily. The rates are $51 for one person each way or $84 for two people each way. The shuttle drops you at the Easton Airport where someone can pick you up or you can take a 5 minute taxi ride to many of the hotels in Easton.
+        </p>
+
+        <h2 id="hotels" class="details-header">
+            Hotels
+        </h2>
+
+        <p>
+            We’ve reserved blocks of rooms at the following hotels in the area, all under the name: <b>“Verploegen/Ferraiuolo”</b>.
+        </p>
+
+        <h3>Tidewater Inn</h3>
+        <div class="details-group l-grid">
+            <div class="l-grid-u">
+                <ul class="details-content">
+                    <li><a href="http://www.tidewaterinn.com/">tidewaterinn.com</a></li>
+                    <li><b>Phone:</b> 410-822-1300</li>
+                    <li>15 of 100 rooms blocked</li>
+                </ul>
+            </div>
+
+            <div class="l-grid-u">
+                <address class="details-content">
+                    <a href="http://maps.apple.com?q=101+East+Dover+Street+Easton,+MD+21601">
+                        101 East Dover Street<br>
+                        Easton, MD 21601
+                    </a>
+                </address>
+            </div>
+        </div>
+
+        <h3>Bartlett Pear Inn</h3>
+        <div class="details-group l-grid">
+            <div class="l-grid-u">
+                <ul class="details-content">
+                    <li><a href="http://bartlettpearinn.com/">bartlettpearinn.com</a></li>
+                    <li><b>Phone:</b> 410-770-3300</li>
+                    <li>7 rooms, entire Inn blocked</li>
+                </ul>
+            </div>
+
+            <div class="l-grid-u">
+                <address class="details-content">
+                    <a href="http://maps.apple.com?q=28+South+Harrison+Street+Easton,+MD+21601">
+                        28 South Harrison Street<br>
+                        Easton, MD 21601
+                    </a>
+                </address>
+            </div>
+        </div>
+
+        <h3>The Bishop’s House</h3>
+        <div class="details-group l-grid">
+            <div class="l-grid-u">
+                <ul class="details-content">
+                    <li><a href="http://bishopshouse.com/">bishopshouse.com</a></li>
+                    <li><b>Phone:</b> 410-820-7290</li>
+                    <li>4 of 5 rooms blocked</li>
+                </ul>
+            </div>
+
+            <div class="l-grid-u">
+                <address class="details-content">
+                    <a href="http://maps.apple.com?q=214+Goldsborough+Street+Easton,+MD+21601">
+                        214 Goldsborough Street<br>
+                        Easton, MD  21601
+                    </a>
+                </address>
+            </div>
+        </div>
+
+        <div class="details-break"></div>
+
+        <p>
+            The following are some other recommendations in the area, but we were <b>unable blocks rooms</b> at these hotels:
+        </p>
+
+        <h3>Holiday Inn Express</h3>
+        <div class="details-group l-grid">
+            <div class="l-grid-u">
+                <ul class="details-content">
+                    <li><a href="http://www.hiexpress.com/hotels/us/en/easton/easex/hoteldetail">Website</a></li>
+                    <li><b>Phone:</b> 410-819-6500</li>
+                    <li><em>No rooms blocked</em></li>
+                </ul>
+            </div>
+
+            <div class="l-grid-u">
+                <address class="details-content">
+                    <a href="http://maps.apple.com?q=8561+Ocean+Gateway+Easton,+MD+21601">
+                        8561 Ocean Gateway<br>
+                        Easton, Maryland 21601
+                    </a>
+                </address>
+            </div>
+        </div>
+
+        <h3>Easton’s Promise</h3>
+        <div class="details-group l-grid">
+            <div class="l-grid-u">
+                <ul class="details-content">
+                    <li><a href="http://www.eastonspromise.com/">eastonspromise.com</a></li>
+                    <li><b>Phone:</b> 410-820-1959</li>
+                    <li><em>No rooms blocked</em>, Bed &amp; Breakfast</li>
+                </ul>
+            </div>
+
+            <div class="l-grid-u">
+                <address class="details-content">
+                    <a href="http://maps.apple.com?q=107+Goldsborough+Street+Easton,+MD+21601">
+                        107 Goldsborough Street<br>
+                        Easton, Maryland 21601
+                    </a>
+                </address>
+            </div>
+        </div>
+    </div>
 </div>
