@@ -1,7 +1,7 @@
 var isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    version: '3.8.1',
+    version: '3.9.1',
 
     config: JSON.stringify({
         combine: isProduction,
