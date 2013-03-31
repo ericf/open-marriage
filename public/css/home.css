@@ -235,5 +235,6 @@
 @media screen and (min-width: 64em) {
     .ann {
         font-size: 2.5em;
+        margin: 1.2em 0;
     }
 }
