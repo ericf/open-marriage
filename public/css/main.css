@@ -12,6 +12,22 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
+h3 {
+    font-size: 1.25em;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+dd {
+    margin: 0 0 1em 1em;
+}
+
+address {
+    margin: 1em 0;
+}
+
 [data-icon]:before {
     font-family: 'Pictos Custom';
     content: attr(data-icon);
@@ -21,6 +37,11 @@ h1, h2, h3, h4, h5, h6 {
 .l-wrap {
     position: relative;
     background: #fcfcfc;
+}
+.l-contain {
+    max-width: 48em;
+    margin: 0 auto;
+    padding: 0 0.5em;
 }
 .l-grid {
     letter-spacing: -0.31em;
@@ -38,6 +59,8 @@ h1, h2, h3, h4, h5, h6 {
     *word-spacing: normal;
     vertical-align: top;
 }
+
+.l-contain,
 .l-grid,
 .l-grid-u {
     -webkit-box-sizing: border-box;
@@ -120,6 +143,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* 576px */
 @media screen and (min-width: 36em) {
+    .l-contain {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
     .nav-items {
         margin-left: 1em;
     }
