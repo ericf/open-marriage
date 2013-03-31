@@ -46,7 +46,8 @@ body {
 
 .cal {
     white-space: nowrap;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     list-style: none;
     max-width: 48em;
@@ -102,26 +103,24 @@ body {
     position: absolute;
     font-weight: 400;
     color: #aaa;
+    font-size: 2.5em;
+    top: 0.15em;
 }
 .travel-nav-travel {
     margin-right: 1px;
     text-align: left;
-    padding-left: 3em;
+    padding-left: 3.5em;
 }
 .travel-nav-travel:before {
-    font-size: 2em;
-    top: 0.15em;
-    left: 0.25em;
+    left: 0.2em;
 }
 .travel-nav-hotel {
     margin-left: 1px;
     text-align: right;
-    padding-right: 3em;
+    padding-right: 3.5em;
 }
 .travel-nav-hotel:before {
-    font-size: 2em;
-    top: 0.15em;
-    right: 0.25em;
+    right: 0.2em;
 }
 
 .details-header {
@@ -172,21 +171,13 @@ body {
     #cal-day-circle {
         right: 0.5em;
     }
-
-    .travel-nav-travel:before {
-        font-size: 3em;
-        top: 0.15em;
-        left: 0.3333em;
-    }
-    .travel-nav-hotel:before {
-        font-size: 3em;
-        top: 0.15em;
-        right: 0.3333em;
-    }
 }
 
 /* 768px */
 @media screen and (min-width: 48em) {
+    .cal {
+        overflow-x: auto;
+    }
     .cal-day {
         width: 33.3333%;
     }
