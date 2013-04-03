@@ -89,6 +89,10 @@ address {
     color: #aaa9a6;
     text-decoration: none;
 }
+.brand a:hover,
+.brand a:active {
+    color: #3997bf;
+}
 
 .nav {
     position: fixed;
