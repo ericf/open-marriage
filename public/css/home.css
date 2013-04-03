@@ -14,6 +14,7 @@
     font-family: "futura-pt", sans-serif;
     font-weight: 300;
     font-size: 2em;
+    color: #008bc7;
 }
 .ann-sep {
     font-size: 2.5em;
@@ -21,7 +22,7 @@
 }
 .ann-msg,
 .ann-sep {
-    color: #aaa;
+    color: #aaa9a6;
 }
 
 .timeline {
@@ -40,7 +41,7 @@
     top: 0;
     left: 50%;
     margin-left: -0.25em;
-    background: #ccc;
+    background: #b269a0;
 }
 .timeline:after {
     content: 'h';
@@ -53,7 +54,7 @@
     left: -0.0417em;
     width: 100%;
     text-align: center;
-    color: #ccc;
+    color: #b269a0;
 }
 .timeline-events {
     margin-top: -2em;
@@ -77,17 +78,20 @@
     margin: 2em 0;
     display: block;
     padding: 0.5em;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
     background: #fff;
+    border-top: 1px solid #e6e5e1;
+    border-bottom: 1px solid #e6e5e1;
+    /*-webkit-box-shadow: 0 0 2px rgba(0,0,0, 0.10);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0, 0.10);
+    box-shadow: 0 0 2px rgba(0,0,0, 0.10);*/
 }
 .event-leslie {
     margin-right: 2em;
-    border-right: 1px solid #ddd;
+    border-right: 1px solid #e6e5e1;
 }
 .event-eric {
     margin-left: 2em;
-    border-left: 1px solid #ddd;
+    border-left: 1px solid #e6e5e1;
 }
 .event-header {
     margin-top: 0;
@@ -101,7 +105,7 @@
 .event-person {
     font-family: "futura-pt", sans-serif;
     font-weight: 300;
-    color: #aaa;
+    color: #aaa9a6;
     text-align: right;
     width: 2.5em;
     margin-right: -2.5em;
@@ -202,7 +206,8 @@
     }
     .event-leslie:before {
         left: 100%;
-        border-left-color: #ddd;
+        border-left-color: #e6e5e1;
+        /*border-left-color: rgba(0,0,0, 0.05);*/
     }
     .event-leslie:after {
         left: 100%;
@@ -210,7 +215,8 @@
     }
     .event-eric:before {
         right: 100%;
-        border-right-color: #ddd;
+        border-right-color: #e6e5e1;
+        /*border-right-color: rgba(0,0,0, 0.05);*/
     }
     .event-eric:after {
         right: 100%;
@@ -225,9 +231,7 @@
 /* 770px */
 @media screen and (min-width: 48.125em) {
     .event {
-        border-left: 1px solid;
-        border-right: 1px solid;
-        border-color: #ddd;
+        border: 1px solid #e6e5e1;
     }
 }
 

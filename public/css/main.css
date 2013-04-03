@@ -1,8 +1,8 @@
 body {
     min-width: 20em;
     line-height: 1.5;
-    background: #fcfcfc;
-    color: #222;
+    background: #fffefa;
+    color: #242217;
     font-family: "proxima-nova" sans-serif;
     padding-top: 3em;
 }
@@ -10,13 +10,17 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: "jubilat", serif;
     font-weight: 400;
+    /*color: #4b6000;*/
+    color: #002F42;
 }
 
 h3 {
     font-size: 1.25em;
 }
 
-a:link {
+a:link,
+a:visited {
+    color: #3997bf;
     text-decoration: none;
 }
 
@@ -36,7 +40,7 @@ address {
 
 .l-wrap {
     position: relative;
-    background: #fcfcfc;
+    background: #fffefa;
 }
 .l-contain {
     max-width: 48em;
@@ -82,7 +86,7 @@ address {
 }
 .brand a {
     display: block;
-    color: #aaa;
+    color: #aaa9a6;
     text-decoration: none;
 }
 
@@ -93,9 +97,9 @@ address {
     width: 100%;
     background: #fff;
     background: rgba(255, 255, 255, 0.98);
-    -webkit-box-shadow: 0 1px 1px #ddd;
-    -moz-box-shadow: 0 1px 1px #ddd;
-    box-shadow: 0 1px 1px #ddd;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
     z-index: 10;
 }
 .nav-items {
@@ -116,15 +120,17 @@ address {
     font-size: 1em;
     line-height: 1;
     padding: 1.125em 0.25em 0.75em;
-    color: #222;
+    color: #242217;
 }
 .nav-item b {
     font-weight: inherit;
 }
 .nav-item a:hover b,
-.nav-item a:active b,
+.nav-item a:active b {
+    border-bottom: 1px solid #3997bf;
+}
 .is-nav-item-active b {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #e6e5e1;
 }
 
 .zoomer {
