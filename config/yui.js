@@ -15,9 +15,11 @@ module.exports = {
                 requires: ['mapbox-css']
             },
 
+            'hide-address-bar': '/vendor/hide-address-bar.js',
+
             'lew-app': {
                 fullpath: '/app.js',
-                requires: ['node-base', 'event-resize', 'graphics', 'mapbox']
+                requires: ['node-base', 'event-resize', 'graphics', 'mapbox', 'hide-address-bar']
             }
         }
     })

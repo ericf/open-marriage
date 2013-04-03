@@ -26,7 +26,7 @@ function circleDate() {
 
         stroke: {
             weight: 2,
-            color : '#df0c21'
+            color : '#b269a0'
         }
     });
 
@@ -43,8 +43,6 @@ function circleDate() {
         top : 0
     });
 }
-
-Y.later(0, win, 'scrollTo', [0, 0]);
 
 Y.all('[data-map]').each(function (mapNode) {
     mapbox.load(mapNode.getData('map'), function (data) {
@@ -72,5 +70,5 @@ if (cal) {
 }
 
 }, '0.0.1', {
-    requires: ['node-base', 'event-resize', 'graphics', 'mapbox']
+    requires: ['node-base', 'event-resize', 'graphics', 'mapbox', 'hide-address-bar']
 });
