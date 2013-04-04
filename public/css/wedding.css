@@ -29,7 +29,7 @@ body {
     font-size: 1.25em;
     line-height: 1.25;
     margin: 1.5em 0;
-    color: #008bc7;
+    color: #216eb5;
 }
 .ann > * {
     display: block;
@@ -38,7 +38,7 @@ body {
 .ann-msg,
 .ann-loc {
     line-height: 1.0;
-    color: #aaa9a6;
+    color: #b0afa6;
 }
 .ann-date {
     font-family: "futura-pt", sans-serif;
@@ -56,7 +56,7 @@ body {
     margin: 0 auto;
     padding: 0;
     background: #fff;
-    border: 1px solid #e6e5e1;
+    border: 1px solid #e5e5df;
     border-left: 0;
     border-right: 0;
 }
@@ -66,7 +66,7 @@ body {
     position: relative;
 }
 .cal-day-primary {
-    border: 1px solid #e6e5e1;
+    border: 1px solid #e5e5df;
     border-top: 0;
     border-bottom: 0;
 }
@@ -98,8 +98,8 @@ body {
     display: block;
     position: relative;
     line-height: 3em;
-    color: #4b6000;
-    background: #b8cc6e;
+    color: #405e47;
+    background: #87c594;
     font-weight: 700;
 }
 .travel-nav a:before {
@@ -140,8 +140,8 @@ body {
     margin: 2em auto;
     height: 1px;
     line-height: 1px;
-    background: #e6e5e1;
-    border-top: 1px solid #fffefa;
+    background: #e5e5df;
+    border-top: 1px solid #fcfcf7;
 }
 
 /* 480px */
@@ -219,7 +219,7 @@ body {
 /* 770px */
 @media screen and (min-width: 48.125em) {
     .cal {
-        border: 1px solid #e6e5e1;
+        border: 1px solid #e5e5df;
     }
 }
 

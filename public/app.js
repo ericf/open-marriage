@@ -26,7 +26,7 @@ function circleDate() {
 
         stroke: {
             weight: 2,
-            color : '#b269a0'
+            color : '#f2c63d'
         }
     });
 

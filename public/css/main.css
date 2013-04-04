@@ -1,8 +1,8 @@
 body {
     min-width: 20em;
     line-height: 1.5;
-    background: #fffefa;
-    color: #242217;
+    background: #fcfcf7;
+    color: #191506;
     font-family: "proxima-nova" sans-serif;
     padding-top: 3em;
 }
@@ -10,8 +10,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: "jubilat", serif;
     font-weight: 400;
-    /*color: #4b6000;*/
-    color: #002F42;
 }
 
 h3 {
@@ -20,7 +18,7 @@ h3 {
 
 a:link,
 a:visited {
-    color: #3997bf;
+    color: #216eb5;
     text-decoration: none;
 }
 
@@ -40,7 +38,7 @@ address {
 
 .l-wrap {
     position: relative;
-    background: #fffefa;
+    background: #fcfcf7;
 }
 .l-contain {
     max-width: 48em;
@@ -86,12 +84,12 @@ address {
 }
 .brand a {
     display: block;
-    color: #aaa9a6;
+    color: #b0afa6;
     text-decoration: none;
 }
 .brand a:hover,
 .brand a:active {
-    color: #3997bf;
+    color: #216eb5;
 }
 
 .nav {
@@ -124,17 +122,17 @@ address {
     font-size: 1em;
     line-height: 1;
     padding: 1.125em 0.25em 0.75em;
-    color: #242217;
+    color: #191506;
 }
 .nav-item b {
     font-weight: inherit;
 }
 .nav-item a:hover b,
 .nav-item a:active b {
-    border-bottom: 1px solid #3997bf;
+    border-bottom: 1px solid #216eb5;
 }
 .is-nav-item-active b {
-    border-bottom: 1px solid #e6e5e1;
+    border-bottom: 1px solid #e5e5df;
 }
 
 .zoomer {
