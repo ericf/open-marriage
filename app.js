@@ -33,8 +33,10 @@ app.locals({
         {id: 'wedding', url: '/wedding/', label: 'Wedding'}
     ],
 
-    typekit: config.typekit,
+    version: config.version,
+
     pictos : config.pictos,
+    typekit: config.typekit,
     yui    : config.yui,
 
     isDevelopment: config.isDevelopment,
@@ -83,6 +85,6 @@ app.put('/invitations/:invitation/', [
     routes.invitations.update
 ]);
 
-app.get('/combo', routes.combo);
+app.get('/combo/:version', routes.combo);
 
 module.exports = app;

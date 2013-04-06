@@ -24,8 +24,10 @@ config = {
         partials: path.resolve('views/partials/')
     },
 
-    typekit: env.TYPEKIT,
+    version: require('../package').version,
+
     pictos : env.PICTOS,
+    typekit: env.TYPEKIT,
     yui    : require('./yui')
 };
 
