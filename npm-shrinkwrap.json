@@ -1,6 +1,6 @@
 {
   "name": "leslie-eric.us",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "dependencies": {
     "async": {
       "version": "0.2.6",
@@ -18,6 +18,11 @@
           "resolved": "https://registry.npmjs.org/URIjs/-/URIjs-1.10.0.tgz"
         }
       }
+    },
+    "csv": {
+      "version": "0.3.0",
+      "from": "csv@",
+      "resolved": "https://registry.npmjs.org/csv/-/csv-0.3.0.tgz"
     },
     "db-migrate": {
       "version": "0.4.1",
