@@ -6,7 +6,14 @@
     "private"    : true,
 
     "author": "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
-    "main"  : "server",
+
+    "directories": {
+        "lib"    : "./lib",
+        "public" : "./public",
+        "scripts": "./scripts"
+    },
+
+    "main": "server",
 
     "engines": {
         "node": "0.8.x",
@@ -16,6 +23,7 @@
     "dependencies": {
         "async"              : "0.2.x",
         "combohandler"       : "0.2.x",
+        "csv"                : "0.3.x",
         "db-migrate"         : "0.4.x",
         "deep-freeze"        : "latest",
         "express"            : "3.x",
