@@ -1,0 +1,9 @@
+<nav class="subnav l-grid-g">
+    <ul class="nav-list l-gird-g">
+      {{#each this}}
+        <li class="nav-item {{#if isActive}}is-nav-item-active{{/if}} l-grid-u">
+            <a href="{{url}}"><b>{{label}}</b></a>
+        </li>
+      {{/each}}
+    </ul>
+</nav>
