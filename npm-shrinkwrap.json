@@ -236,9 +236,9 @@
       }
     },
     "express-slash": {
-      "version": "0.1.0",
-      "from": "https://registry.npmjs.org/express-slash/-/express-slash-0.1.0.tgz",
-      "resolved": "https://registry.npmjs.org/express-slash/-/express-slash-0.1.0.tgz"
+      "version": "0.2.0",
+      "from": "express-slash@0.2.0",
+      "resolved": "https://registry.npmjs.org/express-slash/-/express-slash-0.2.0.tgz"
     },
     "express3-handlebars": {
       "version": "0.4.1",
