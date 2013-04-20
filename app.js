@@ -74,8 +74,8 @@ if (config.isDevelopment) {
 
 // -- Routes -------------------------------------------------------------------
 
-app.get('/',         routes.home);
-app.get('/wedding/', routes.wedding);
+app.get('/',         routes.render('home'));
+app.get('/wedding/', routes.render('wedding'));
 
 app.get('/rsvp/',            routes.rsvp.edit);
 app.get('/rsvp/:invitation', routes.rsvp.login);
