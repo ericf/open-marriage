@@ -123,7 +123,7 @@ a.button {
     list-style: none;
 }
 .nav-item {
-    margin: 0 0.25em;
+    margin: 0 0.5em 0 0;
     text-transform: uppercase;
 }
 .nav-item:first-child {
@@ -168,6 +168,19 @@ a.button {
 .subnav {
     margin: 1em 0;
 }
+.subnav .nav-item:first-child a {
+    color: #b0afa6;
+}
+.subnav .nav-item:first-child a:hover,
+.subnav .nav-item:first-child a:active {
+    color: #216eb5;
+}
+.subnav .nav-item:first-child b {
+    border-bottom: none;
+}
+.subnav .nav-item:first-child b:after {
+    content: ":"
+}
 
 .zoomer {
     display: none !important;
@@ -207,7 +220,7 @@ a.button {
         margin-left: 1em;
     }
     .nav-item {
-        margin: 0 0.5em;
+        margin: 0 1em 0 0;
     }
     .nav-item:first-child {
         margin-left: 0;
