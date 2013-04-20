@@ -1,5 +1,5 @@
 var http = require('http'),
-    app  = require('./app'),
+    app  = require('./lib/app'),
     port = app.get('port');
 
 http.createServer(app).listen(port, function () {
