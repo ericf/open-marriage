@@ -1,0 +1,37 @@
+.details-group .l-grid-u {
+    display: block;
+}
+.details-break {
+    width: 80%;
+    margin: 2em auto;
+    height: 1px;
+    line-height: 1px;
+    background: #e5e5df;
+    border-top: 1px solid #fcfcf7;
+}
+address.details-content {
+    text-align: center;
+}
+
+/* 768px */
+@media screen and (min-width: 48em) {
+    .details-group {
+        margin: 1em -1em;
+    }
+    .details-group .l-grid-u {
+        display: inline-block;
+        *display: inline;
+        width: 50%;
+        vertical-align: top;
+    }
+    .details-content {
+        margin: 0;
+        padding: 0 1em;
+    }
+    .details-content li {
+        margin-left: 2.5em;
+    }
+    address.details-content {
+        text-align: left;
+    }
+}
