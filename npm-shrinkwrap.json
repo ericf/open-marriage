@@ -1,6 +1,6 @@
 {
   "name": "leslie-eric.us",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "dependencies": {
     "async": {
       "version": "0.2.7",
