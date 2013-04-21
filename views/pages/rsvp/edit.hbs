@@ -1,23 +1,25 @@
-<h1>RSVP</h1>
+<div class="l-contain">
+    <h1>RSVP</h1>
 
-{{#with invitation}}
-<p>{{id}}</p>
-<p>{{address}}</p>
-<p>RSVP'd: {{rsvpd}}</p>
+    {{#with invitation}}
+    <p>{{id}}</p>
+    <p>{{address}}</p>
+    <p>RSVP'd: {{rsvpd}}</p>
 
-{{#if guests}}
-<b>Guests:</b>
-<ul>
-  {{#each guests}}
-    <li>{{title}} {{name}}</li>
-  {{/each}}
-</ul>
-{{/if}}
+    {{#if guests}}
+    <b>Guests:</b>
+    <ul>
+      {{#each guests}}
+        <li>{{title}} {{name}}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
 
-<form action="/invitations/{{id}}/" method="POST">
-    <input type="hidden" name="_method" value="PUT" />
-    <input type="hidden" name="_csrf" value="{{../csrf}}" />
+    <form action="/invitations/{{id}}/" method="POST">
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="hidden" name="_csrf" value="{{../csrf}}" />
 
-    <p><input type="submit" value="Save" /></p>
-</form>
-{{/with}}
+        <p><input type="submit" value="Save" /></p>
+    </form>
+    {{/with}}
+</div>
