@@ -1,6 +1,6 @@
 var STATUS_CODES = require('http').STATUS_CODES,
 
-    invs = require('../services/invitations');
+    invs = require('../lib/invitations');
 
 exports.login = [invIdFromUrl, loadInvitation, setSessionInvId];
 exports.edit  = [invIdFromSession, loadInvitation, renderInvitation];

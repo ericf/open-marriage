@@ -1,4 +1,4 @@
-var invs = require('../services/invitations');
+var invs = require('../lib/invitations');
 
 exports.read = function (req, res, next) {
     invs.loadInvitation(req.invitationId, function (err, invitation) {

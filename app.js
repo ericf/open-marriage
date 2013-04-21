@@ -1,8 +1,8 @@
 var express = require('express'),
     exphbs  = require('express3-handlebars'),
 
-    config     = require('../config'),
-    helpers    = require('./helpers'),
+    config     = require('./config'),
+    helpers    = require('./lib/helpers'),
     middleware = require('./middleware'),
     routes     = require('./routes'),
 

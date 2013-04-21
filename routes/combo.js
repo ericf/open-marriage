@@ -1,5 +1,5 @@
 var combo  = require('combohandler'),
-    config = require('../../config');
+    config = require('../config');
 
 function send (req, res) {
     res.send(res.body);

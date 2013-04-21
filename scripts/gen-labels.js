@@ -3,7 +3,7 @@
 var csv  = require('csv'),
     path = require('path'),
 
-    invs   = require('../lib/services/invitations'),
+    invs   = require('../lib/invitations'),
     output = process.argv[2];
 
 if (output) {
