@@ -27,7 +27,8 @@ app.engine('hbs', exphbs({
 }));
 
 app.locals({
-    title: 'Leslie & Eric',
+    title   : 'Leslie & Eric',
+    appTitle: 'L&E Wedding',
 
     nav: [
         {id: 'wedding',   url: '/wedding/',   label: 'Wedding'},

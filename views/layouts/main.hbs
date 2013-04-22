@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-title" content="{{appTitle}}">
 
     <title>{{pageTitle}}</title>
 
@@ -10,11 +11,11 @@
     {{addCSS "/vendor/normalize.css" prepend=true}}
 
   {{#css}}
-    <link rel="stylesheet" href="{{{url}}}" />
+    <link rel="stylesheet" href="{{{url}}}">
   {{/css}}
 
   {{#if pictos}}
-    <link rel="stylesheet" href="//get.pictos.cc/fonts/{{pictos}}" />
+    <link rel="stylesheet" href="//get.pictos.cc/fonts/{{pictos}}">
   {{/if}}
 
   {{#if typekit}}
