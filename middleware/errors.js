@@ -1,4 +1,5 @@
-var STATUS_CODES = require('http').STATUS_CODES;
+var BadRequest   = require('combohandler').BadRequest,
+    STATUS_CODES = require('http').STATUS_CODES;
 
 exports.notfound = function (req, res) {
     if (!res.locals.message) {
@@ -17,13 +18,20 @@ exports.notfound = function (req, res) {
 };
 
 exports.server = function (err, req, res, next) {
-    res.status(500).format({
+    var status = 500;
+
+    if (err instanceof BadRequest) {
+        status             = 400;
+        res.locals.message = err.message;
+    }
+
+    res.status(status).format({
         'html': function () {
-            res.render('error', {status: STATUS_CODES[500]});
+            res.render('error', {status: STATUS_CODES[status]});
         },
 
         'text': function () {
-            res.send(STATUS_CODES[500]);
+            res.send(STATUS_CODES[status]);
         }
     });
 };

@@ -1,4 +1,5 @@
-var express = require('express'),
+var combo   = require('combohandler'),
+    express = require('express'),
     exphbs  = require('express3-handlebars'),
 
     config     = require('./config'),
@@ -100,6 +101,9 @@ app.all('/invitations/:invitation/', middleware.auth.ensureInvitation);
 app.get('/invitations/:invitation/', routes.invitations.read);
 app.put('/invitations/:invitation/', routes.invitations.update);
 
-app.get('/combo/:version', routes.combo);
+app.get('/combo/:version', [
+    combo.combine({rootPath: config.dirs.pub}),
+    combo.respond
+]);
 
 module.exports = app;

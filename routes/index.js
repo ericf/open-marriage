@@ -1,5 +1,4 @@
 module.exports = {
-    combo      : require('./combo'),
     invitations: require('./invitations'),
     rsvp       : require('./rsvp'),
 
