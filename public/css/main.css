@@ -163,7 +163,7 @@ a.button {
 .nav .nav-item a {
     font-size: 1em;
     line-height: 1;
-    padding: 1.125em 0.25em 0.75em;
+    padding: 1.0675em 0.25em 0.9375em;
 }
 
 .subnav {
@@ -232,7 +232,7 @@ a.button {
 
     .nav .nav-item a {
         font-size: 1.125em;
-        padding: 1em 0.4444em 0.6667em;
+        padding: 0.9444em 0.4444em 0.7222em;
     }
 }
 
@@ -247,7 +247,7 @@ a.button {
     }
 
     .nav .nav-item a {
-        padding: 1.4444em 0.4444em 1.1111em;
+        padding: 1.3889em 0.4444em 1.1667em;
     }
 }
 
