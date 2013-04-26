@@ -112,7 +112,7 @@ body {
 
 .anchored-header {
     margin-top: -1em;
-    padding-top: 2em;
+    padding-top: 2.4em;
 }
 
 /* 480px */
@@ -141,6 +141,11 @@ body {
 
     .travel-nav-hotel .button {
         padding: 0 4em 0 1em;
+    }
+
+    .anchored-header {
+        margin-top: -1em;
+        padding-top: 2em;
     }
 }
 
