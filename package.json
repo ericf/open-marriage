@@ -8,9 +8,12 @@
     "author": "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
 
     "directories": {
-        "lib"    : "./lib",
-        "public" : "./public",
-        "scripts": "./scripts"
+        "lib"       : "./lib",
+        "middleware": "./middleware",
+        "public"    : "./public",
+        "routes"    : "./routes",
+        "scripts"   : "./scripts",
+        "views"     : "./views"
     },
 
     "main": "server",
