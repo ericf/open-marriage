@@ -1,0 +1,13 @@
+.coming {
+    font-size: 2em;
+    margin: 2em 0;
+    color: #B0AFA6;
+    text-align: center;
+}
+
+/* 576px */
+@media screen and (min-width: 36em) {
+    .coming {
+        font-size: 3em;
+    }
+}
