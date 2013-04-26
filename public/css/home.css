@@ -137,6 +137,11 @@ body {
     height: 20em;
 }
 
+.button-wedding {
+    margin: 2em;
+    text-align: center;
+}
+
 /* 480px */
 @media screen and (min-width: 30em) {
     .ann {
