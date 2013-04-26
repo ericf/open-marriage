@@ -1,11 +1,15 @@
 {{#if nav}}
-<nav class="nav l-grid-g">
-    <b class="brand l-grid-u" title="Leslie &amp; Eric">
+<nav class="nav l-grid">
+    <b class="brand l-grid-u" title="{{title}}">
         <a href="/">L<span class="brand-sep l-inline">&amp;</span>E</a>
     </b>
 
+    <b class="nav-toggle nav-item l-grid-u">
+        <a data-icon="a" href="#menu">menu</a>
+    </b>
+
     <div class="nav-items l-grid-u">
-        <ul class="nav-list l-gird-g">
+        <ul class="nav-list l-grid">
           {{#each nav}}
             <li class="nav-item {{#if isActive}}is-nav-item-active{{/if}} l-grid-u">
                 <a href="{{url}}"><b>{{label}}</b></a>
