@@ -1,8 +1,8 @@
 YUI.add('lew-app', function (Y) {
 
-    var win      = Y.config.win,
-        isRetina = win.devicePixelRatio >= 2,
-        cal      = Y.one('.cal');
+var win      = Y.config.win,
+    isRetina = win.devicePixelRatio >= 2,
+    cal      = Y.one('.cal');
 
 function centerCal() {
     var scrollWidth = cal.get('scrollWidth'),
@@ -68,6 +68,14 @@ if (cal) {
     centerCal();
     Y.one(win).on(['orientationchange', 'windowresize'], centerCal);
 }
+
+Y.one('.nav-toggle').on('click', function (e) {
+    var nav = this.ancestor('.nav');
+
+    e.preventDefault();
+    nav.one('.nav-toggle').toggleClass('is-nav-item-active');
+    nav.one('.nav-items').toggleClass('is-nav-items-active');
+});
 
 }, '0.0.1', {
     requires: ['node-base', 'event-resize', 'graphics', 'mapbox', 'hide-address-bar']
