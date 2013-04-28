@@ -94,14 +94,16 @@ a.button {
 }
 .button:before {
     position: absolute;
-    font-size: 2.5em;
-    line-height: 1.2;
     top: 0;
     left: 0;
-    padding: 0.1em 0.2em 0;
+    font-size: 2.5em;
     font-weight: 400;
+    line-height: 1.2;
+    width: 0.8em;
+    padding: 0.1em 0.2em 0;
     background: #75AB81;
     color: #304534;
+    text-align: center;
 }
 
 .brand {
