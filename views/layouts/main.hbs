@@ -35,12 +35,12 @@
 
 {{{body}}}
 
-  {{#if yui}}
-    <script src="http://yui.yahooapis.com/{{yui.version}}/build/yui/yui{{min}}.js"></script>
+    <script src="http://yui.yahooapis.com/{{yui_version}}/build/yui/yui{{min}}.js"></script>
     <script>
-        YUI({{{yui.config}}}).use('lew-app');
+        {{{state}}}
+
+        YUI().use('lew-app');
     </script>
-  {{/if}}
 
 </body>
 </html>

@@ -6,7 +6,7 @@ var isProduction = process.env.NODE_ENV === 'production',
 module.exports = {
     version: YUI_VERSION,
 
-    config: JSON.stringify({
+    config: {
         combine: isProduction,
         filter : isProduction ? 'min' : 'raw',
         root   : YUI_VERSION + '/',
@@ -40,5 +40,5 @@ module.exports = {
                 }
             }
         }
-    })
+    }
 };

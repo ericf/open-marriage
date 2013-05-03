@@ -33,7 +33,6 @@ function invIdFromUrl(req, res, next) {
 
 function renderInvitation(req, res) {
     res.render('rsvp/edit', {
-        csrf      : req.session._csrf,
         invitation: req.invitation
     });
 }

@@ -1,6 +1,7 @@
 var combo   = require('combohandler'),
     express = require('express'),
     exphbs  = require('express3-handlebars'),
+    state   = require('express-state'),
 
     config     = require('./config'),
     helpers    = require('./lib/helpers'),
@@ -27,6 +28,8 @@ app.engine('hbs', exphbs({
     partialsDir  : config.dirs.partials
 }));
 
+app.expose(config.yui.config, 'window.YUI_config');
+
 app.locals({
     title   : 'Leslie & Eric',
     appTitle: 'L&E Wedding',
@@ -46,11 +49,11 @@ app.locals({
         ]
     },
 
-    version: config.version,
+    version    : config.version,
+    yui_version: config.yui.version,
 
     pictos : config.pictos,
     typekit: config.typekit,
-    yui    : config.yui,
 
     isDevelopment: config.isDevelopment,
     isProduction : config.isProduction,
@@ -72,6 +75,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.csrf());
+app.use(middleware.csrfToken);
 app.use(app.router);
 app.use(middleware.slash());
 app.use(express.static(config.dirs.pub));
