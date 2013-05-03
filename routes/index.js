@@ -1,4 +1,5 @@
 module.exports = {
+    guests     : require('./guests'),
     invitations: require('./invitations'),
     rsvp       : require('./rsvp'),
 
