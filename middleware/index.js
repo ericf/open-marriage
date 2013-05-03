@@ -1,5 +1,6 @@
 module.exports = {
-    auth  : require('./auth'),
-    errors: require('./errors'),
-    slash : require('express-slash')
+    auth      : require('./auth'),
+    errors    : require('./errors'),
+    invitation: require('./invitation'),
+    slash     : require('express-slash')
 };
