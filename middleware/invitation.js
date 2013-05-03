@@ -22,7 +22,10 @@ module.exports = function (req, res, next) {
     invs.loadInvitation(invitationId, function (err, invitation) {
         if (err) { return next(err); }
 
-        req.invitation = invitation;
+        req.invitation        = invitation;
+        res.locals.invitation = invitation;
+        res.expose(invitation, 'invitation');
+
         next();
     });
 };

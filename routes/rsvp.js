@@ -28,7 +28,5 @@ exports.edit = function (req, res) {
         return res.render('rsvp/description');
     }
 
-    res.render('rsvp/edit', {
-        invitation: req.invitation
-    });
+    res.render('rsvp/edit');
 };
