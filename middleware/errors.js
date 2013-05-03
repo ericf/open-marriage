@@ -1,5 +1,6 @@
 var BadRequest   = require('combohandler').BadRequest,
-    STATUS_CODES = require('http').STATUS_CODES;
+    STATUS_CODES = require('http').STATUS_CODES,
+    NOT_FOUND    = STATUS_CODES[404];
 
 exports.notfound = function (req, res) {
     if (!res.locals.message) {
@@ -8,11 +9,15 @@ exports.notfound = function (req, res) {
 
     res.status(404).format({
         'html': function () {
-            res.render('error', {status: STATUS_CODES[404]});
+            res.render('error', {status: NOT_FOUND});
+        },
+
+        'json': function () {
+            res.json({status: NOT_FOUND});
         },
 
         'text': function () {
-            res.send(STATUS_CODES[404]);
+            res.send(NOT_FOUND);
         }
     });
 };
@@ -28,6 +33,10 @@ exports.server = function (err, req, res, next) {
     res.status(status).format({
         'html': function () {
             res.render('error', {status: STATUS_CODES[status]});
+        },
+
+        'json': function () {
+            res.json({status: STATUS_CODES[status]});
         },
 
         'text': function () {

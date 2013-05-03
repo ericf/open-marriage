@@ -1,23 +1,8 @@
 var STATUS_CODES = require('http').STATUS_CODES,
 
-    invs           = require('../lib/invitations'),
-    loadInvitation = require('../middleware/invitation');
+    invs = require('../lib/invitations');
 
-exports.login = [invIdFromUrl, loadInvitation, setSessionInvId];
-exports.edit  = [invIdFromSession, loadInvitation, renderInvitation];
-
-function invIdFromSession(req, res, next) {
-    var invitationId = req.session.invitation;
-
-    if (invitationId) {
-        req.invitationId = invitationId;
-        next();
-    } else {
-        return res.render('rsvp/description');
-    }
-}
-
-function invIdFromUrl(req, res, next) {
+exports.login = function (req, res, next) {
     var invitationId;
 
     try {
@@ -27,17 +12,23 @@ function invIdFromUrl(req, res, next) {
         return res.status(401).render('error', {status: STATUS_CODES[401]});
     }
 
-    req.invitationId = invitationId;
-    next();
-}
+    invs.loadInvitation(invitationId, function (err, invitation) {
+        if (err || !invitation) {
+            delete req.session.invitation;
+            return next(err);
+        }
 
-function renderInvitation(req, res) {
+        req.session.invitation = invitationId;
+        res.redirect('/rsvp/');
+    });
+};
+
+exports.edit = function (req, res) {
+    if (!req.invitation) {
+        return res.render('rsvp/description');
+    }
+
     res.render('rsvp/edit', {
         invitation: req.invitation
     });
-}
-
-function setSessionInvId(req, res) {
-    req.session.invitation = req.invitationId;
-    res.redirect('/rsvp/');
-}
+};
