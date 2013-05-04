@@ -25,7 +25,7 @@ exports.login = function (req, res, next) {
 
 exports.edit = function (req, res) {
     if (!req.invitation) {
-        return res.render('rsvp/description');
+        return res.render('rsvp/public');
     }
 
     res.render('rsvp/edit');
