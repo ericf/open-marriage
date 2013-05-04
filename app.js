@@ -17,7 +17,7 @@ app.set('env', config.env);
 app.set('port', config.port);
 app.set('views', config.dirs.views);
 app.set('view engine', 'hbs');
-
+app.set('state namespace', 'YUI.Env.LE');
 app.enable('strict routing');
 
 app.engine('hbs', exphbs({
@@ -34,6 +34,9 @@ app.locals({
     title   : 'Leslie & Eric',
     appTitle: 'L&E Wedding',
 
+    version    : config.version,
+    yui_version: config.yui.version,
+
     nav: [
         {id: 'wedding',   url: '/wedding/',   label: 'Wedding'},
         {id: 'logistics', url: '/logistics/', label: 'Logistics'},
@@ -49,8 +52,7 @@ app.locals({
         ]
     },
 
-    version    : config.version,
-    yui_version: config.yui.version,
+    yui_module: 'le-main',
 
     pictos : config.pictos,
     typekit: config.typekit,

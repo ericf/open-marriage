@@ -28,14 +28,27 @@ module.exports = {
                 root     : '/',
 
                 modules: {
-                    'hide-address-bar': {path: 'vendor/hide-address-bar.js'},
+                    'hide-address-bar': {
+                        path: 'vendor/hide-address-bar.js'
+                    },
 
-                    'lew-app': {
-                        path    : 'js/app.js',
-                        requires: [
-                            'node-base', 'event-resize', 'graphics', 'mapbox',
-                            'hide-address-bar'
-                        ]
+                    'le-wedding': {
+                        path: 'js/wedding.js',
+                        requires: ['le-main', 'le-maps', 'event-resize', 'graphics']
+                    },
+
+                    'le-home': {
+                        use: ['le-main', 'le-maps']
+                    },
+
+                    'le-main': {
+                        path    : 'js/main.js',
+                        requires: ['node-base', 'hide-address-bar']
+                    },
+
+                    'le-maps': {
+                        path    : 'js/maps.js',
+                        requires: ['node-base', 'mapbox']
                     }
                 }
             }

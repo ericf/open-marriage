@@ -29,18 +29,18 @@
     </script>
   {{/if}}
 </head>
+
 <body class="{{#if invitation}}is-invited{{/if}}">
 
-    {{> nav}}
+{{> nav}}
 
 {{{body}}}
 
-    <script src="http://yui.yahooapis.com/{{yui_version}}/build/yui/yui{{min}}.js"></script>
-    <script>
-        {{{state}}}
-
-        YUI().use('lew-app');
-    </script>
+<script src="http://yui.yahooapis.com/{{yui_version}}/build/yui/yui{{min}}.js"></script>
+<script>
+{{{state}}}
+YUI().use('{{yui_module}}');
+</script>
 
 </body>
 </html>
