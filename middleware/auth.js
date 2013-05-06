@@ -1,6 +1,4 @@
-var STATUS_CODES = require('http').STATUS_CODES,
-    NOT_FOUND    = STATUS_CODES[404],
-    UNAUTHORIZED = STATUS_CODES[401];
+var error = require('../lib/utils').error;
 
 exports.ensureInvitation = [checkInvitation, isAuthorized];
 exports.ensureGuest      = [checkGuest, isAuthorized];
@@ -42,17 +40,5 @@ function isAuthorized(req, res, next) {
         return next();
     }
 
-    res.status(401).format({
-        'html': function () {
-            res.render('error', {status: UNAUTHORIZED});
-        },
-
-        'json': function () {
-            res.json({status: UNAUTHORIZED});
-        },
-
-        'text': function () {
-            res.send(UNAUTHORIZED);
-        }
-    });
+    next(error(401));
 }

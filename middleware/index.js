@@ -1,7 +1,9 @@
 module.exports = {
+    slash: require('express-slash'),
+
     auth      : require('./auth'),
-    errors    : require('./errors'),
+    error     : require('./error'),
     csrfToken : require('./csrf'),
     invitation: require('./invitation'),
-    slash     : require('express-slash')
+    notfound  : require('./notfound')
 };

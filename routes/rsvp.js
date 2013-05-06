@@ -1,6 +1,5 @@
-var STATUS_CODES = require('http').STATUS_CODES,
-
-    invs = require('../lib/invitations');
+var error = require('../lib/utils').error,
+    invs  = require('../lib/invitations');
 
 exports.login = function (req, res, next) {
     var invitationId;
@@ -9,7 +8,7 @@ exports.login = function (req, res, next) {
         invitationId = invs.decipherId(req.params.invitation_key);
     } catch (ex) {
         delete req.session.invitation;
-        return res.status(401).render('error', {status: STATUS_CODES[401]});
+        return next(error(401));
     }
 
     invs.loadInvitation(invitationId, function (err, invitation) {

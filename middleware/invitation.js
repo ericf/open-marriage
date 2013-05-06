@@ -1,6 +1,4 @@
-var NOT_FOUND = require('http').STATUS_CODES[404],
-
-    invs = require('../lib/invitations');
+var invs = require('../lib/invitations');
 
 module.exports = function (req, res, next) {
     var invitationId = req.session.invitation,
