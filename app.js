@@ -28,6 +28,8 @@ app.engine('hbs', exphbs({
     partialsDir  : config.dirs.partials
 }));
 
+// -- Locals -------------------------------------------------------------------
+
 app.expose(config.yui.config, 'window.YUI_config');
 
 app.locals({
