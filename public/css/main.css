@@ -58,6 +58,7 @@ address {
 }
 .l-inline,
 .l-grid-u,
+button,
 .button {
     display: inline-block;
     *display: inline;
@@ -78,6 +79,7 @@ address {
     box-sizing: border-box;
 }
 
+button,
 .button {
     position: relative;
     line-height: 3.0;
@@ -85,13 +87,19 @@ address {
     background: #87c594;
     text-align: center;
     font-weight: 700;
+    overflow: hidden;
+    border: 0;
+    -webkit-border-radius: 0.125em;
+    -moz-border-radius: 0.125em;
+    border-radius: 0.125em;
 }
+button,
 .button,
 a.button {
     color: #304534;
     text-decoration: none;
-    overflow: hidden;
 }
+button:before,
 .button:before {
     position: absolute;
     top: 0;
@@ -100,10 +108,23 @@ a.button {
     font-weight: 400;
     line-height: 1.2;
     width: 0.8em;
-    padding: 0.1em 0.2em 0;
+    padding: 0.125em 0.2em 0;
     background: #75AB81;
-    color: #304534;
     text-align: center;
+}
+button:before,
+.button:before,
+button:after,
+.button:after {
+    z-index: 0;
+}
+.is-button-negative,
+a.is-button-negative {
+    background: #f2c63d;
+    color: #513e06;
+}
+.is-button-negative:before {
+    background: #e0ac10;
 }
 
 .brand {
@@ -268,6 +289,7 @@ a.button {
         padding-right: 1em;
     }
 
+    button,
     .button {
         padding: 0 1em 0 4em;
     }

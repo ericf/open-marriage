@@ -88,25 +88,15 @@ body {
 
 .travel-nav {
     list-style: none;
-    margin: 0 auto 2em auto;
+    margin: 1.5em auto;
     padding: 0;
 }
 .travel-nav-item {
-    width: 50%;
+    margin: 0.5em auto;
+    width: 100%;
 }
 .travel-nav .button {
     display: block;
-}
-.travel-nav-travel .button {
-    border-right: 1px solid #75AB81;
-}
-.travel-nav-hotel .button {
-    border-left: 1px solid #75AB81;
-    padding: 0 3.5em 0 0.5em;
-}
-.travel-nav-hotel .button:before {
-    left: auto;
-    right: 0;
 }
 
 .anchored-header {
@@ -127,8 +117,16 @@ body {
 
 /* 568px */
 @media screen and (min-width: 35.5em) {
-    .ann {
-        font-size: 2em;
+    .travel-nav {
+        margin-left: -0.5em;
+        margin-right: -0.5em;
+    }
+    .travel-nav-item {
+        margin: 0.5em auto;
+        width: 50%;
+    }
+    .travel-nav .button {
+        margin: 0 0.5em;
     }
 }
 
@@ -138,8 +136,12 @@ body {
         right: 0.5em;
     }
 
-    .travel-nav-hotel .button {
-        padding: 0 4em 0 1em;
+    .travel-nav {
+        margin-left: -1em;
+        margin-right: -1em;
+    }
+    .travel-nav .button {
+        margin: 0 1em;
     }
 
     .anchored-header {
