@@ -1,15 +1,12 @@
-exports.create = function (req, req, next) {
-    next('Not implemented');
-};
+var guests = require('../lib/guests');
 
 exports.read = function (req, res, next) {
     res.json(req.guest);
 };
 
 exports.update = function (req, res, next) {
-    next('Not implemented');
-};
-
-exports.del = function (req, res, next) {
-    next('Not implemented');
+    guests.updateGuest(req.guest.id, req.body, function (err) {
+        if (err) { return next(err); }
+        res.send(204);
+    });
 };
