@@ -37,8 +37,8 @@ function checkInvitation(req, res, next) {
 
 function isAuthorized(req, res, next) {
     if (req.isAuthorized) {
-        return next();
+        next();
+    } else {
+        next(error(401));
     }
-
-    next(error(401));
 }
