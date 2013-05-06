@@ -1,19 +1,19 @@
-var guests = require('../lib/guests'),
-    invs   = require('../lib/invitations');
+var invs   = require('../lib/invitations'),
+    utils  = require('../lib/utils'),
+
+    extend = utils.extend;
 
 exports.read = function (req, res, next) {
     res.json(req.invitation);
 };
 
 exports.update = function (req, res, next) {
-    invs.updateInvitation(req.invitationId, req.body, function (err) {
-        if (err) { return next(err); }
-        res.send();
-    });
-};
+    var updates = extend({}, req.body, {rsvpd: true});
 
-exports.createGuest = function (req, res, next) {
-    next('Not implemented');
+    invs.updateInvitation(req.invitation.id, updates, function (err) {
+        if (err) { return next(err); }
+        res.send(204);
+    });
 };
 
 exports.readGuests = function (req, res, next) {
