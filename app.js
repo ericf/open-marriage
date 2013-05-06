@@ -112,12 +112,10 @@ app.all( '/invitations/:invitation/*',      middleware.auth.ensureInvitation);
 app.get( '/invitations/:invitation/',       routes.invitations.read);
 app.put( '/invitations/:invitation/',       routes.invitations.update);
 app.get( '/invitations/:invitation/guests', routes.invitations.readGuests);
-app.post('/invitations/:invitation/guests', routes.invitations.createGuest);
 
 app.all('/guests/:guest/', middleware.auth.ensureGuest);
 app.get('/guests/:guest/', routes.guests.read);
 app.put('/guests/:guest/', routes.guests.update);
-app.del('/guests/:guest/', routes.guests.del);
 
 app.get('/combo/:version', [
     combo.combine({rootPath: config.dirs.pub}),
