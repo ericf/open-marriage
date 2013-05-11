@@ -74,7 +74,7 @@ if (config.isDevelopment) {
 app.use(express.compress());
 app.use(express.favicon(config.dirs.pub + '/favicon.ico'));
 app.use(express.cookieParser());
-app.use(express.cookieSession({secret: config.secrets.session}));
+app.use(express.cookieSession(config.session));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());

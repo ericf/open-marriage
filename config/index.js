@@ -12,10 +12,16 @@ config = {
     database: env.DATABASE_URL,
     port    : env.PORT || 5000,
 
-    secrets: {
-        invitation: env.INVITATION_SECRET,
-        session   : env.SESSION_SECRET
+    session: {
+        key   : 'le.session',
+        secret: env.SESSION_SECRET,
+
+        cookie: {
+            maxAge: 7 * 24 * 60 * 60 * 1000 // 1 week
+        }
     },
+
+    invitationSecret: env.INVITATION_SECRET,
 
     dirs: {
         pub     : path.resolve('public/'),
