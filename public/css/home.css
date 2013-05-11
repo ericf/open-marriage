@@ -2,31 +2,8 @@ body {
     padding-bottom: 0;
 }
 
-.ann {
-    font-size: 1.25em;
-    line-height: 1.25;
-    margin: 1em 0;
-}
-.ann > * {
-    display: block;
-    text-align: center;
-}
-.ann-msg {
-    line-height: 1.0;
-}
-.ann-name {
-    font-family: "futura-pt", sans-serif;
-    font-weight: 300;
-    font-size: 2em;
-    color: #216eb5;
-}
 .ann-sep {
     font-size: 2.5em;
-    line-height: 1.0;
-}
-.ann-msg,
-.ann-sep {
-    color: #b0afa6;
 }
 
 .timeline {
@@ -144,16 +121,12 @@ body {
 
 /* 480px */
 @media screen and (min-width: 30em) {
-    .ann {
-        font-size: 1.5em;
-    }
+
 }
 
 /* 568px */
 @media screen and (min-width: 35.5em) {
-    .ann {
-        font-size: 2em;
-    }
+
 }
 
 /* 576px */
@@ -246,8 +219,5 @@ body {
 
 /* 1024px */
 @media screen and (min-width: 64em) {
-    .ann {
-        font-size: 2.5em;
-        margin: 1.2em 0;
-    }
+
 }

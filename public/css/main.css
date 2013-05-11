@@ -250,13 +250,35 @@ a.is-button-negative {
     content: ":"
 }
 
+.ann {
+    font-size: 1.25em;
+    line-height: 1.25;
+    margin: 1em 0;
+}
+.ann > * {
+    display: block;
+    text-align: center;
+}
+.ann-primary {
+    font-family: "futura-pt", sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+    color: #216eb5;
+}
+.ann-secondary {
+    line-height: 1.0;
+    color: #b0afa6;
+}
+
 .zoomer {
     display: none !important;
 }
 
 /* 480px */
 @media screen and (min-width: 30em) {
-
+    .ann {
+        font-size: 1.5em;
+    }
 }
 
 /* 568px */
@@ -274,6 +296,10 @@ a.is-button-negative {
     }
     .nav .nav-toggle {
         display: none;
+    }
+
+    .ann {
+        font-size: 2em;
     }
 }
 
@@ -325,5 +351,8 @@ a.is-button-negative {
 
 /* 1024px */
 @media screen and (min-width: 64em) {
-
+    .ann {
+        font-size: 2.5em;
+        margin: 1.2em 0;
+    }
 }
