@@ -27,12 +27,7 @@ exports.config  = {
 
             modules: {
                 'hide-address-bar': {
-                    path: 'vendor/hide-address-bar.js'
-                },
-
-                'le-wedding': {
-                    path: 'js/wedding.js',
-                    requires: ['le-main', 'le-maps', 'event-resize', 'graphics']
+                    path: 'vendor/hide-address-bar/hide-address-bar.js'
                 },
 
                 'le-home': {
@@ -47,6 +42,16 @@ exports.config  = {
                 'le-maps': {
                     path    : 'js/maps.js',
                     requires: ['node-base', 'mapbox']
+                },
+
+                'le-rsvp': {
+                    path    : 'js/rsvp.js',
+                    requires: ['app-base', 'app-content', 'model', 'model-list', 'model-sync-rest', 'view']
+                },
+
+                'le-wedding': {
+                    path: 'js/wedding.js',
+                    requires: ['le-main', 'le-maps', 'event-resize', 'graphics']
                 }
             }
         }

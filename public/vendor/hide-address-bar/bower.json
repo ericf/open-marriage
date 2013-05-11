@@ -1,0 +1,9 @@
+{
+  "name": "hide-address-bar",
+  "version": "0.0.0",
+  "commit": "910af3e27c61832957b09bdcb5504553ebbed118",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/scottjehl/Hide-Address-Bar.git"
+  }
+}
