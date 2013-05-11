@@ -41,6 +41,25 @@ address {
     content: attr(data-icon);
 }
 
+.l-grid {
+    letter-spacing: -0.31em;
+    *letter-spacing: normal;
+    *word-spacing: -0.43em;
+    text-rendering: optimizespeed;
+}
+.opera-only :-o-prefocus,
+.l-grid {
+    word-spacing: -0.43em;
+}
+.l-grid-u {
+    display: inline-block;
+    zoom: 1; *display: inline;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
 .l-wrap {
     position: relative;
     background: #fcfcf7;
@@ -50,25 +69,10 @@ address {
     margin: 0 auto;
     padding: 0 0.5em;
 }
-.l-grid {
-    letter-spacing: -0.31em;
-    *letter-spacing: normal;
-    *word-spacing: -0.43em;
-    text-rendering: optimizespeed;
-}
-.l-inline,
-.l-grid-u,
-button,
-.button {
+.l-inline {
     display: inline-block;
     *display: inline;
     zoom: 1;
-}
-.l-grid-u {
-    letter-spacing: normal;
-    word-spacing: normal;
-    vertical-align: top;
-    text-rendering: auto;
 }
 
 .l-contain,
@@ -82,6 +86,9 @@ button,
 button,
 .button {
     position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
     line-height: 3.0;
     padding: 0 0.5em 0 3.5em;
     background: #87c594;
