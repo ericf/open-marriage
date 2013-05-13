@@ -9,13 +9,11 @@
     },
     "combohandler": {
       "version": "0.2.2",
-      "from": "https://registry.npmjs.org/combohandler/-/combohandler-0.2.2.tgz",
-      "resolved": "https://registry.npmjs.org/combohandler/-/combohandler-0.2.2.tgz",
+      "from": "combohandler@0.2.2",
       "dependencies": {
         "URIjs": {
           "version": "1.10.1",
-          "from": "https://registry.npmjs.org/URIjs/-/URIjs-1.10.1.tgz",
-          "resolved": "https://registry.npmjs.org/URIjs/-/URIjs-1.10.1.tgz"
+          "from": "URIjs@1.10.1"
         }
       }
     },
@@ -53,7 +51,7 @@
         },
         "mkdirp": {
           "version": "0.3.5",
-          "from": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz",
+          "from": "mkdirp@0.3.5",
           "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz"
         },
         "moment": {
@@ -74,27 +72,21 @@
       "resolved": "https://registry.npmjs.org/deep-freeze/-/deep-freeze-0.0.1.tgz"
     },
     "express": {
-      "version": "3.2.0",
-      "from": "https://registry.npmjs.org/express/-/express-3.2.0.tgz",
-      "resolved": "https://registry.npmjs.org/express/-/express-3.2.0.tgz",
+      "version": "3.2.4",
+      "from": "express@3.2.4",
+      "resolved": "https://registry.npmjs.org/express/-/express-3.2.4.tgz",
       "dependencies": {
         "connect": {
-          "version": "2.7.6",
-          "from": "https://registry.npmjs.org/connect/-/connect-2.7.6.tgz",
-          "resolved": "https://registry.npmjs.org/connect/-/connect-2.7.6.tgz",
+          "version": "2.7.9",
+          "from": "connect@2.7.9",
           "dependencies": {
             "qs": {
-              "version": "0.5.1",
-              "from": "qs@0.5.1",
-              "resolved": "https://registry.npmjs.org/qs/-/qs-0.5.1.tgz"
+              "version": "0.6.4",
+              "from": "qs@0.6.4"
             },
             "formidable": {
-              "version": "1.0.11",
-              "from": "formidable@1.0.11"
-            },
-            "buffer-crc32": {
-              "version": "0.1.1",
-              "from": "buffer-crc32@0.1.1"
+              "version": "1.0.13",
+              "from": "formidable@1.0.13"
             },
             "bytes": {
               "version": "0.2.0",
@@ -115,9 +107,8 @@
           "from": "range-parser@0.0.4"
         },
         "mkdirp": {
-          "version": "0.3.5",
-          "from": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz",
-          "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz"
+          "version": "0.3.4",
+          "from": "mkdirp@0.3.4"
         },
         "cookie": {
           "version": "0.0.5",
@@ -125,8 +116,7 @@
         },
         "buffer-crc32": {
           "version": "0.2.1",
-          "from": "https://registry.npmjs.org/buffer-crc32/-/buffer-crc32-0.2.1.tgz",
-          "resolved": "https://registry.npmjs.org/buffer-crc32/-/buffer-crc32-0.2.1.tgz"
+          "from": "buffer-crc32@0.2.1"
         },
         "fresh": {
           "version": "0.1.0",
@@ -152,8 +142,7 @@
         },
         "debug": {
           "version": "0.7.2",
-          "from": "https://registry.npmjs.org/debug/-/debug-0.7.2.tgz",
-          "resolved": "https://registry.npmjs.org/debug/-/debug-0.7.2.tgz"
+          "from": "debug@*"
         }
       }
     },
@@ -161,6 +150,11 @@
       "version": "0.2.0",
       "from": "https://registry.npmjs.org/express-slash/-/express-slash-0.2.0.tgz",
       "resolved": "https://registry.npmjs.org/express-slash/-/express-slash-0.2.0.tgz"
+    },
+    "express-state": {
+      "version": "0.0.2",
+      "from": "express-state@0.0.2",
+      "resolved": "https://registry.npmjs.org/express-state/-/express-state-0.0.2.tgz"
     },
     "express3-handlebars": {
       "version": "0.4.1",
