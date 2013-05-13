@@ -103,11 +103,20 @@ body {
     text-align: center;
 }
 .event-photo {
+    position: relative;
     margin: 0 -0.5em;
 }
 .event-photo img {
     display: block;
     width: 100%;
+}
+.event-photo-credit {
+    font-size: 0.875em;
+    position: absolute;
+    bottom: 0.2857em;
+    right: 0.5714em;
+    color: #fcfcf7 !important;
+    text-shadow: 0 0 1px #191506;
 }
 .event-map {
     margin: 0 -0.5em;

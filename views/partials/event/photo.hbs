@@ -1,3 +1,7 @@
 <div class="event-photo">
     <img src="{{photo}}" alt="{{alt}}" />
+
+  {{#if credit}}
+    <a class="event-photo-credit" href="{{credit.url}}">{{credit.text}}</a>
+  {{/if}}
 </div>
