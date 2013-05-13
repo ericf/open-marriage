@@ -47,6 +47,7 @@ exports.config  = {
                 'le-rsvp': {
                     path    : 'js/rsvp.js',
                     requires: [
+                        'le-main',
                         'app-base',
                         'app-content',
                         'app-transitions',

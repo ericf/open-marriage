@@ -279,6 +279,7 @@ YUI.add('le-rsvp', function (Y) {
 
 }, '1.2.0', {
     requires: [
+        'le-main',
         'app-base',
         'app-content',
         'app-transitions',
