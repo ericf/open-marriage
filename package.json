@@ -2,7 +2,7 @@
     "name"       : "leslie-eric.us",
     "description": "The official website for Leslie Verloegen's and Eric Ferraiuolo's wedding.",
     "homepage"   : "http://leslie-eric.us/",
-    "version"    : "1.1.3",
+    "version"    : "1.2.0",
     "private"    : true,
 
     "author": "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
