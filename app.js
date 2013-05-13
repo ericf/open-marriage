@@ -81,6 +81,7 @@ app.use(express.methodOverride());
 app.use(express.csrf());
 app.use(middleware.csrfToken);
 app.use(middleware.invitation);
+app.use(middleware.pjax('bare'));
 app.use(app.router);
 app.use(middleware.slash());
 app.use(express.static(config.dirs.pub));

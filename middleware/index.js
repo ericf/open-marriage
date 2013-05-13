@@ -5,5 +5,6 @@ module.exports = {
     error     : require('./error'),
     csrfToken : require('./csrf'),
     invitation: require('./invitation'),
-    notfound  : require('./notfound')
+    notfound  : require('./notfound'),
+    pjax      : require('./pjax')
 };
