@@ -23,9 +23,24 @@ exports.login = function (req, res, next) {
 };
 
 exports.edit = function (req, res) {
-    if (!req.invitation) {
+    var invitation = req.invitation,
+        guestsAttending;
+
+    if (!invitation) {
         return res.render('rsvp/public');
     }
 
-    res.render('rsvp/edit');
+    if (!invitation.rsvpd) {
+        return res.render('rsvp/rsvp');
+    }
+
+    guestsAttending = invitation.guests.some(function (guest) {
+        return guest.is_attending;
+    });
+
+    if (guestsAttending) {
+        res.render('rsvp/attending');
+    } else {
+        res.render('rsvp/not-attending');
+    }
 };

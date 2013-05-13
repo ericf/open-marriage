@@ -46,7 +46,17 @@ exports.config  = {
 
                 'le-rsvp': {
                     path    : 'js/rsvp.js',
-                    requires: ['app-base', 'app-content', 'model', 'model-list', 'model-sync-rest', 'view']
+                    requires: [
+                        'app-base',
+                        'app-content',
+                        'app-transitions',
+                        'escape',
+                        'model',
+                        'model-list',
+                        'model-sync-rest',
+                        'view',
+                        'promise'
+                    ]
                 },
 
                 'le-wedding': {

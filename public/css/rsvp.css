@@ -1,0 +1,183 @@
+.ann {
+    margin-bottom: 1.5em;
+}
+.ann-sep {
+    font-family: "jubilat", serif;
+    font-weight: 400;
+    color: #b0afa6;
+}
+
+.rsvp {
+    text-align: center;
+}
+.rsvp button {
+    margin: 1em auto;
+    display: block;
+}
+.rsvp .rsvp-yes {
+    font-size: 1.5em;
+    margin-top: 1.3333em;
+    margin-bottom: 1.3333em;
+    width: 100%;
+}
+.rsvp .rsvp-no {
+    width: 100%;
+}
+
+.inv,
+.guests {
+    background: #fff;
+    border: 1px solid #e5e5df;
+    border-left: 0;
+    border-right: 0;
+}
+.inv-address,
+.guests-list {
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+}
+.inv-send-paper {
+    text-align: center;
+}
+.inv-send-paper input {
+    margin-right: 0.25em;
+}
+.inv-address {
+    display: none;
+}
+.inv-address-msg,
+.inv-address-val,
+.guest {
+    width: 100%;
+}
+.inv-address-val {
+    text-align: center;
+}
+.inv-address-msg p,
+.inv-address-val address,
+.inv-address-val textarea {
+    margin-top: 0;
+}
+.inv-address-val address {
+    white-space: pre;
+}
+.inv-address-val textarea {
+    width: 100%;
+    margin: 0 auto 1em;
+}
+.inv-address-val textarea,
+.inv-address-done {
+    display: none;
+}
+.is-inv-send-paper .inv-address {
+    display: block;
+}
+.is-inv-editing .inv-address-val textarea {
+    display: block;
+}
+.is-inv-editing .inv-address-val address,
+.is-inv-editing .inv-address-edit {
+    display: none;
+}
+.is-inv-editing .inv-address-done {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+.guests-ctrls {
+    width: 100%;
+    margin: 1em auto;
+    text-align: center;
+}
+
+.guest-salutation {
+    width: 100%;
+}
+.guest-attending {
+    font-weight: 700;
+}
+.guest-title-val {
+    width: 25%;
+    padding-right: 0.5em;
+}
+.guest-name-val {
+    width: 75%;
+}
+.guest-title-val input,
+.guest-name-val input,
+.guest-email-val input {
+    width: 100%;
+}
+
+.guest-title-val,
+.guest-name-val,
+.guest-email-val,
+.guest-attending-val,
+.guests-done {
+    display: none;
+}
+
+.is-guests-editing .guest-title-val,
+.is-guests-editing .guest-name-val,
+.is-guests-editing .guests-done {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.is-guests-editing .guest-email-val,
+.is-guests-editing .guest-attending-val {
+    display: block;
+}
+.is-guests-editing .guest-salutation,
+.is-guests-editing .guest-email,
+.is-guests-editing .guest-attending,
+.is-guests-editing .guests-edit {
+    display: none;
+}
+
+/* 480px */
+@media screen and (min-width: 30em) {
+    .rsvp .rsvp-no {
+        width: 62%;
+    }
+}
+
+/* 576px */
+@media screen and (min-width: 36em) {
+    .rsvp .rsvp-yes {
+        font-size: 2em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .inv-address,
+    .guests-list {
+        margin-left: -1em;
+        margin-right: -1em;
+    }
+    .inv-address-msg,
+    .inv-address-val,
+    .guest {
+        width: 50%;
+        text-align: left;
+    }
+}
+
+/* 768px */
+@media screen and (min-width: 48em) {
+    .rsvp .rsvp-yes {
+        width: 62%;
+    }
+    .rsvp .rsvp-no {
+        width: 38%;
+    }
+}
+
+/* 770px */
+@media screen and (min-width: 48.125em) {
+    .inv,
+    .guests {
+        border: 1px solid #e5e5df;
+    }
+}

@@ -1,0 +1,38 @@
+<div class="guest l-contain l-grid-u" data-guest="{{id}}">
+    <h2 class="l-grid">
+        <span class="guest-salutation l-grid-u">
+            <span class="guest-title">{{title}}</span>
+            <span class="guest-name">{{name}}</span>
+        </span>
+
+        <span class="guest-title-val l-grid-u">
+            <input type="text" value="{{title}}" placeholder="Title" data-title>
+        </span>
+        <span class="guest-name-val l-grid-u">
+            <input type="text" value="{{name}}" placeholder="Full Name" data-name>
+        </span>
+    </h2>
+
+    <div>
+        <p class="guest-email">{{email}}</p>
+        <p class="guest-email-val">
+            <input type="text" value="{{email}}" placeholder="Email" data-email>
+        </p>
+    </div>
+
+    <div>
+        <p class="guest-attending">
+          {{#if is_attending}}
+            Attending
+          {{else}}
+            Not Attending
+          {{/if}}
+        </p>
+        <p class="guest-attending-val">
+            <label>
+                <input type="checkbox" data-attending {{#if is_attending}}checked{{/if}}>
+                Is Attending
+            </label>
+        </p>
+    </div>
+</div>

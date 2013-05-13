@@ -1,0 +1,19 @@
+{{> rsvp/meta}}
+
+<div id="main" role="main">
+    <div data-view="rsvp">
+        <div class="l-contain">
+            {{setMessageToGuests "Will You Be Attending Our Wedding?"}}
+            {{> rsvp/header}}
+
+            <div class="rsvp">
+                <button data-attending="true" class="rsvp-yes" data-icon="y">
+                    Yes, Attending
+                </button>
+                <button data-attending="false" class="rsvp-no is-button-negative" data-icon="n">
+                    Regretfully, Not Attending
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
