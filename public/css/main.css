@@ -111,11 +111,11 @@ button:before,
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 400;
-    line-height: 1.2;
-    width: 0.8em;
-    padding: 0.125em 0.2em 0;
+    line-height: 1.5;
+    width: 1em;
+    padding: 0.125em 0.25em 0;
     background: #75AB81;
     text-align: center;
 }
@@ -298,15 +298,9 @@ a.is-button-negative {
     .nav .nav-item {
         width: auto;
     }
-    .nav .nav-item a {
-        padding: 1.0675em 1em 0.9375em;
-    }
+
     .nav .nav-toggle {
         display: none;
-    }
-
-    .ann {
-        font-size: 2em;
     }
 }
 
@@ -338,6 +332,10 @@ a.is-button-negative {
     .nav .nav-item a {
         font-size: 1.125em;
         padding: 0.9444em 0.8888em 0.7222em;
+    }
+
+    .ann {
+        font-size: 2em;
     }
 }
 
