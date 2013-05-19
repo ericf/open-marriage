@@ -64,7 +64,7 @@ textarea:focus {
 }
 
 .l-grid {
-    letter-spacing: -0.27em;
+    letter-spacing: -0.31em;
     *letter-spacing: normal;
     *word-spacing: -0.43em;
     text-rendering: optimizespeed;
@@ -314,8 +314,9 @@ a.is-button-negative {
 @media screen and (min-width: 35.5em) {
     .nav .nav-items {
         display: inline-block;
-        width: auto;
         max-height: none;
+        /* Fixes Firefox's issue with `auto` */
+        width: 30em;
     }
     .nav .nav-item {
         width: auto;
