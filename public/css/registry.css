@@ -1,13 +1,34 @@
-.coming {
-    font-size: 2em;
-    margin: 2em 0;
-    color: #B0AFA6;
+.reg-place {
+    margin: 1em auto;
     text-align: center;
+    vertical-align: top;
+}
+.reg-place img {
+    width: 100%;
+    max-width: 250px;
+}
+
+.reg .break {
+    margin: 1em auto;
+}
+
+.donate {
+    text-align: center;
+}
+.donate .button {
+    padding-left: 0.5em;
 }
 
 /* 576px */
 @media screen and (min-width: 36em) {
-    .coming {
-        font-size: 3em;
+    .reg-place {
+        text-align: left;
+    }
+
+    .donate {
+        text-align: left;
+    }
+    .donate .button {
+        padding-left: 1em;
     }
 }

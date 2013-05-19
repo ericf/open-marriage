@@ -1,14 +1,6 @@
 .details-group .l-grid-u {
     display: block;
 }
-.details-break {
-    width: 80%;
-    margin: 2em auto;
-    height: 1px;
-    line-height: 1px;
-    background: #e5e5df;
-    border-top: 1px solid #fcfcf7;
-}
 address.details-content {
     text-align: center;
 }

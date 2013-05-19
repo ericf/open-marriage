@@ -63,7 +63,8 @@ textarea:focus {
     content: attr(data-icon);
 }
 
-.l-grid {
+.l-grid,
+.l-grid-1-2 {
     letter-spacing: -0.31em;
     *letter-spacing: normal;
     *word-spacing: -0.43em;
@@ -80,6 +81,13 @@ textarea:focus {
     word-spacing: normal;
     vertical-align: top;
     text-rendering: auto;
+}
+.l-grid-1-2 {
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+}
+.l-grid-1-2 > .l-grid-u {
+    width: 100%;
 }
 
 .l-wrap {
@@ -304,6 +312,15 @@ a.is-button-negative {
     border-left: 4px solid #f2c63d;
 }
 
+.break {
+    width: 80%;
+    margin: 2em auto;
+    height: 1px;
+    line-height: 1px;
+    background: #e5e5df;
+    border-top: 1px solid #fcfcf7;
+}
+
 .zoomer {
     display: none !important;
 }
@@ -338,6 +355,14 @@ a.is-button-negative {
     h2 { font-size: 1.5em; }
     h3 { font-size: 1.25em; }
     h4 { font-size: 1em; }
+
+    .l-grid-1-2 {
+        margin-left: -1em;
+        margin-right: -1em;
+    }
+    .l-grid-1-2 > .l-grid-u {
+        width: 50%;
+    }
 
     .l-contain {
         padding-left: 1em;
