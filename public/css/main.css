@@ -299,6 +299,11 @@ a.is-button-negative {
     color: #b0afa6;
 }
 
+.callout {
+    padding: 0.5em 0 0.5em 2em;
+    border-left: 4px solid #f2c63d;
+}
+
 .zoomer {
     display: none !important;
 }
