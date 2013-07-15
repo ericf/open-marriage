@@ -277,7 +277,7 @@ YUI.add('le-rsvp', function (Y) {
         }
     });
 
-}, '1.3.0', {
+}, '1.3.1', {
     requires: [
         'le-main',
         'app-base',
