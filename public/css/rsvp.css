@@ -24,26 +24,16 @@
     width: 100%;
 }
 
-.inv,
-.guests {
+.inv {
     background: #fff;
     border: 1px solid #e5e5df;
     border-left: 0;
     border-right: 0;
 }
 .inv-address,
-.guests-list {
+.inv-guests {
     margin-left: -0.5em;
     margin-right: -0.5em;
-}
-.inv-send-paper {
-    text-align: center;
-}
-.inv-send-paper input {
-    margin-right: 0.25em;
-}
-.inv-address {
-    display: none;
 }
 .inv-address-msg,
 .inv-address-val,
@@ -64,31 +54,6 @@
 .inv-address-val textarea {
     width: 100%;
     margin: 0 auto 1em;
-}
-.inv-address-val textarea,
-.inv-address-done {
-    display: none;
-}
-.is-inv-send-paper .inv-address {
-    display: block;
-}
-.is-inv-editing .inv-address-val textarea {
-    display: block;
-}
-.is-inv-editing .inv-address-val address,
-.is-inv-editing .inv-address-edit {
-    display: none;
-}
-.is-inv-editing .inv-address-done {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-}
-
-.guests-ctrls {
-    width: 100%;
-    margin: 1em auto;
-    text-align: center;
 }
 
 .guest-salutation {
@@ -114,25 +79,34 @@
 .guest-name-val,
 .guest-email-val,
 .guest-attending-val,
-.guests-done {
+.inv-address-val textarea,
+.inv-done {
     display: none;
 }
 
-.is-guests-editing .guest-title-val,
-.is-guests-editing .guest-name-val,
-.is-guests-editing .guests-done {
+.inv-ctrls {
+    width: 100%;
+    margin: 1em auto;
+    text-align: center;
+}
+
+.is-inv-editing .guest-title-val,
+.is-inv-editing .guest-name-val,
+.is-inv-editing .inv-done {
     display: inline-block;
     *display: inline;
     zoom: 1;
 }
-.is-guests-editing .guest-email-val,
-.is-guests-editing .guest-attending-val {
+.is-inv-editing .inv-address-val textarea,
+.is-inv-editing .guest-email-val,
+.is-inv-editing .guest-attending-val {
     display: block;
 }
-.is-guests-editing .guest-salutation,
-.is-guests-editing .guest-email,
-.is-guests-editing .guest-attending,
-.is-guests-editing .guests-edit {
+.is-inv-editing .inv-address-val address,
+.is-inv-editing .guest-salutation,
+.is-inv-editing .guest-email,
+.is-inv-editing .guest-attending,
+.is-inv-editing .inv-edit {
     display: none;
 }
 
@@ -152,7 +126,7 @@
     }
 
     .inv-address,
-    .guests-list {
+    .inv-guests {
         margin-left: -1em;
         margin-right: -1em;
     }
@@ -176,8 +150,7 @@
 
 /* 770px */
 @media screen and (min-width: 48.125em) {
-    .inv,
-    .guests {
+    .inv {
         border: 1px solid #e5e5df;
     }
 }

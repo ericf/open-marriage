@@ -52,6 +52,8 @@ exports.config  = {
                         'app-content',
                         'app-transitions',
                         'escape',
+                        'event-focus',
+                        'io-queue',
                         'model',
                         'model-list',
                         'model-sync-rest',

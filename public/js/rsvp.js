@@ -1,6 +1,6 @@
 YUI.add('le-rsvp', function (Y) {
 
-    // -- Models ---------------------------------------------------------------
+    // -- Y.Models Overrides ---------------------------------------------------
 
     Y.Model.prototype.promiseSave = function (options) {
         var model = this;
@@ -12,6 +12,30 @@ YUI.add('le-rsvp', function (Y) {
         });
     };
 
+    Y.ModelSync.REST.prototype._sendSyncIORequest = function (config) {
+        return Y.io.queue(config.url, {
+            'arguments': {
+                action  : config.action,
+                callback: config.callback,
+                url     : config.url
+            },
+
+            context: this,
+            data   : config.entity,
+            headers: config.headers,
+            method : config.method,
+            timeout: config.timeout,
+
+            on: {
+                start  : this._onSyncIOStart,
+                failure: this._onSyncIOFailure,
+                success: this._onSyncIOSuccess,
+                end    : this._onSyncIOEnd
+            }
+        });
+    };
+
+    // -- Models ---------------------------------------------------------------
 
     Y.Guest = Y.Base.create('guest', Y.Model, [Y.ModelSync.REST], {
         root: '/guests/'
@@ -19,7 +43,27 @@ YUI.add('le-rsvp', function (Y) {
 
 
     Y.Guests = Y.Base.create('guests', Y.ModelList, [Y.ModelSync.REST], {
-        model: Y.Guest
+        model: Y.Guest,
+
+        attending: function () {
+            return this.filter({asList: true}, function (guest) {
+                return guest.get('is_attending');
+            });
+        },
+
+        invited: function () {
+            return this.filter({asList: true}, function (guest) {
+                return !guest.get('is_plusone');
+            });
+        },
+
+        names: function (guests) {
+            return (guests || this).filter({asList: true}, function (guest) {
+                return !!guest.get('name');
+            }).map(function (guest) {
+                return Y.Escape.html(guest.get('name').split(' ')[0]);
+            });
+        }
     });
 
 
@@ -43,103 +87,104 @@ YUI.add('le-rsvp', function (Y) {
 
     Y.InvitationView = Y.Base.create('invitationView', Y.View, [], {
         events: {
-            '[data-edit]'      : {click: 'edit'},
-            '[data-done]'      : {click: 'done'},
-            '[data-send-paper]': {click: 'updateSendPaper'}
+            '[data-edit]'     : {click: 'edit'},
+            '[data-done]'     : {click: 'done'},
+            '[data-attending]': {click: 'proposeUpdates'},
+            'input, textarea' : {blur: 'proposeUpdates'}
+        },
+
+        initializer: function () {
+            this.get('invitation').after('*:change', this.syncUI, this);
         },
 
         edit: function (e) {
-            var container = this.get('container'),
-                address   = this.get('invitation').get('address');
-
-            e.preventDefault();
-            container.addClass('is-inv-editing');
-            container.one('[data-address]')
-                .focus()
-                .setHTML(Y.Escape.html(address));
+            if (e) { e.preventDefault(); }
+            this.get('container').addClass('is-inv-editing');
         },
 
         done: function (e) {
-            var container = this.get('container'),
-                address   = container.one('[data-address]').get('value');
+            if (e) { e.preventDefault(); }
+            this.proposeUpdates();
+            this.get('container').removeClass('is-inv-editing');
+        },
 
-            e.preventDefault();
-            container.one('address').setHTML(Y.Escape.html(address));
-            container.removeClass('is-inv-editing');
+        proposeUpdates: function () {
+            var container = this.get('container'),
+                invitation;
+
+            invitation = {
+                address: container.one('[data-address]').get('value'),
+                guests : []
+            };
+
+            container.all('[data-guest]').each(function (node) {
+                invitation.guests.push({
+                    id          : parseInt(node.getData('guest'), 10),
+                    title       : node.one('[data-title]').get('value'),
+                    name        : node.one('[data-name]').get('value'),
+                    email       : node.one('[data-email]').get('value'),
+                    is_attending: node.one('[data-attending]').get('checked')
+                });
+            });
 
             this.fire('invitationUpdate', {
-                updates: {address: address}
+                updates: invitation
             });
         },
 
-        updateSendPaper: function (e) {
-            var container = this.get('container'),
-                checked   = e.currentTarget.get('checked');
+        syncUI: function () {
+            var container  = this.get('container'),
+                invitation = this.get('invitation');
 
-            container.toggleClass('is-inv-send-paper', checked);
+            container.all('address, [data-address]')
+                .setHTML(Y.Escape.html(invitation.get('address')));
 
-            this.fire('invitationUpdate', {
-                updates: {send_paper: checked}
+            invitation.get('guests').each(function (guest) {
+                var id   = guest.get('id'),
+                    node = container.one('[data-guest="' + id + '"]'),
+                    is_attending;
+
+                if (!node) { return; }
+
+                node.one('.guest-title').set('text', guest.get('title'));
+                node.one('[data-title]').set('value', guest.get('title'));
+
+                node.one('.guest-name').set('text', guest.get('name'));
+                node.one('[data-name]').set('value', guest.get('name'));
+
+                node.one('.guest-email').set('text', guest.get('email'));
+                node.one('[data-email]').set('value', guest.get('email'));
+
+                is_attending = guest.get('is_attending');
+                node.one('.guest-attending')
+                    .set('text', is_attending ? 'Attending' : 'Not Attending');
+                node.one('[data-attending]').set('checked', is_attending);
             });
         }
     });
 
 
-    Y.GuestsView = Y.Base.create('guestsView', Y.View, [], {
-        events: {
-            '[data-edit]': {click: 'edit'},
-            '[data-done]': {click: 'done'}
+    Y.AnnouncementView = Y.Base.create('announcementView', Y.View, [], {
+        namesSeparator : ' <span class="ann-sep">&amp;</span> ',
+        attendingMsg   : 'Yay, We’re Happy You’ll Be Attending!',
+        notAttendingMsg: 'We’re Sorry You Won’t Be Attending.',
+
+        initializer: function () {
+            this.get('guests').after('guest:change', this.syncUI, this);
         },
 
-        edit: function (e) {
-            e.preventDefault();
-            this.get('container').addClass('is-guests-editing');
-            this.get('guests').each(this.syncGuestUI, this);
-        },
+        syncUI: function () {
+            var container = this.get('container'),
+                guests    = this.get('guests'),
+                attending = guests.attending(),
+                names     = guests.names(attending.size() && attending),
+                msg;
 
-        done: function (e) {
-            var container = this.get('container');
+            container.one('.ann-primary')
+                .setHTML(names.join(this.namesSeparator) + ',');
 
-            e.preventDefault();
-            container.all('[data-guest]').each(this.syncGuestData, this);
-            container.removeClass('is-guests-editing');
-        },
-
-        syncGuestData: function (guestNode) {
-            var id           = guestNode.getData('guest'),
-                title        = guestNode.one('[data-title]').get('value'),
-                name         = guestNode.one('[data-name]').get('value'),
-                email        = guestNode.one('[data-email]').get('value'),
-                is_attending = guestNode.one('[data-attending]').get('checked');
-
-            guestNode.one('.guest-title').set('text', title);
-            guestNode.one('.guest-name').set('text', name);
-            guestNode.one('.guest-email').set('text', email);
-            guestNode.one('.guest-attending')
-                .set('text', is_attending ? 'Attending' : 'Not Attending');
-
-            this.fire('guestUpdate', {
-                id: id,
-
-                updates: {
-                    title       : title,
-                    name        : name,
-                    email       : email,
-                    is_attending: is_attending
-                }
-            });
-        },
-
-        syncGuestUI: function (guest) {
-            var guestId   = guest.get('id'),
-                container = this.get('container'),
-                guestNode = container.one('[data-guest="' + guestId + '"]');
-
-            guestNode.one('[data-title]').set('value', guest.get('title'));
-            guestNode.one('[data-name]').set('value', guest.get('name'));
-            guestNode.one('[data-email]').set('value', guest.get('email'));
-            guestNode.one('[data-attending]')
-                .get('checked', guest.get('is_attending'));
+            msg = attending.size() ? this.attendingMsg : this.notAttendingMsg;
+            container.one('.ann-secondary').setHTML(msg);
         }
     });
 
@@ -161,15 +206,15 @@ YUI.add('le-rsvp', function (Y) {
             var container  = this.get('container'),
                 invitation = this.get('invitation');
 
-            this.invitationView = new Y.InvitationView({
-                container    : container.one('.inv'),
-                invitation   : invitation,
+            this.announcementView = new Y.AnnouncementView({
+                container    : container.one('.ann'),
+                guests       : invitation.get('guests'),
                 bubbleTargets: this
             }).attachEvents();
 
-            this.guestsView = new Y.GuestsView({
-                container    : container.one('.guests'),
-                guests       : invitation.get('guests'),
+            this.invitationView = new Y.InvitationView({
+                container    : container.one('.inv'),
+                invitation   : invitation,
                 bubbleTargets: this
             }).attachEvents();
         }
@@ -208,45 +253,61 @@ YUI.add('le-rsvp', function (Y) {
     app.initialContent = Y.one('#main > [data-view]');
 
     app.rsvp = function (isAttending) {
-        var guests = this.invitation.get('guests'),
-            saves  = [app.updateInvitation({rsvpd: true, send_paper: false})];
+        var invitation = this.invitation.set('rsvpd', true),
+            guests     = invitation.get('guests');
 
-        guests.invoke('set', 'is_attending', isAttending);
-        saves.push.apply(saves, guests.invoke('promiseSave'));
+        if (isAttending) {
+            guests.invited().invoke('set', 'is_attending', true);
+        } else {
+            guests.invoke('set', 'is_attending', false);
+        }
 
-        Y.batch.apply(null, saves).then(function () {
+        return this.saveInvitation().then(function () {
             app.replace('');
         });
     };
 
     app.updateInvitation = function (updates) {
-        this.invitation.setAttrs(updates);
+        updates || (updates = {});
 
-        if (this.invitation.isModified()) {
-            return this.invitation.promiseSave();
-        }
+        var invitation   = this.invitation,
+            guests       = invitation.get('guests'),
+            guestUpdates = updates.guests || [];
 
-        return Y.when(true);
+        delete updates.guests;
+        invitation.setAttrs(updates);
+
+        Y.Array.each(guestUpdates, function (gUpdates) {
+            var guest = guests.getById(gUpdates.id);
+            if (guest) {
+                guest.setAttrs(gUpdates);
+            }
+        });
+
+        return this.saveInvitation();
     };
 
-    app.updateGuest = function (id, updates) {
-        var guest = this.invitation.get('guests').getById(id);
+    app.saveInvitation = function () {
+        var invitation = this.invitation,
+            guests     = invitation.get('guests'),
+            saves      = [];
 
-        if (!guest) {
-            return Y.when(false);
-        }
+        saves.push(invitation.isModified() && invitation.promiseSave());
+        saves.push.apply(saves, guests.map(function (guest) {
+            return guest.isModified() && guest.promiseSave();
+        }));
 
-        guest.setAttrs(updates);
-
-        if (guest.isModified()) {
-            return guest.promiseSave();
-        }
-
-        return Y.when(true);
-    };
+        return Y.batch.apply(null, saves);
+    },
 
     app.route('/', 'loadContent', function (req, res, next) {
         var content = res.content.node.one('[data-view]');
+
+        this.once('activeViewChange', function (e) {
+            if (this.invitation.get('guests').attending().size()) {
+                e.newVal.invitationView.edit();
+            }
+        });
 
         this.showContent(content, {
             view: {
@@ -262,10 +323,6 @@ YUI.add('le-rsvp', function (Y) {
 
     app.on('*:invitationUpdate', function (e) {
         this.updateInvitation(e.updates);
-    });
-
-    app.on('*:guestUpdate', function (e) {
-        this.updateGuest(e.id, e.updates);
     });
 
     app.render().showContent(app.initialContent, {
@@ -284,6 +341,8 @@ YUI.add('le-rsvp', function (Y) {
         'app-content',
         'app-transitions',
         'escape',
+        'event-focus',
+        'io-queue',
         'model',
         'model-list',
         'model-sync-rest',
