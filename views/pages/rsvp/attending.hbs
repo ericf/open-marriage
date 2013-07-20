@@ -3,37 +3,36 @@
 <div id="main" role="main">
     <div data-view="attending">
         <div class="l-contain">
-            {{setMessageToGuests "Yay, We’re Happy You’ll Be Attending…"}}
-            {{> rsvp/header}}
-
-            <p>
-                We’re excited that you’ll be there to celebrate our wedding!
-            </p>
+            <h1 class="ann">
+                <span class="ann-primary">{{guestsNames attending=true}},</span>
+                <span class="ann-secondary">Yay, We’re Happy You’ll Be Attending!</span>
+            </h1>
         </div>
 
-        <div class="guests l-contain">
-            <div class="guests-list l-grid">
-              {{#each invitation.guests}}
+      {{#with invitation}}
+        <div class="inv l-contain">
+            <div class="inv-guests l-grid">
+              {{#each guests}}
                 {{> rsvp/guest}}
               {{/each}}
+            </div>
 
-                <div class="guests-ctrls l-grid-u">
-                    <button class="guests-edit" data-icon="e" data-edit>
-                        Edit Details
-                    </button>
-                    <button class="guests-done" data-icon="d" data-done>
-                        Done Editing
-                    </button>
-                </div>
+            <div class="inv-address-val">
+                <address>{{address}}</address>
+                <textarea data-address rows="3">{{address}}</textarea>
+            </div>
+
+            <div class="inv-ctrls">
+                <button class="inv-edit" data-icon="e" data-edit>Edit</button>
+                <button class="inv-done" data-icon="d" data-done>Done</button>
             </div>
         </div>
+      {{/with}}
 
         <div class="l-contain">
             <p>
                 <b>You have RSVP’d for our wedding</b>, but if you would <em>also</em> like to receive a paper invitation from us as a keepsake, check the box below:
             </p>
         </div>
-
-        {{> rsvp/invitation}}
     </div>
 </div>
