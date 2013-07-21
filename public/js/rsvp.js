@@ -57,6 +57,12 @@ YUI.add('le-rsvp', function (Y) {
             });
         },
 
+        plusones: function () {
+            return this.filter({asList: true}, function (guest) {
+                return guest.get('is_plusone');
+            });
+        },
+
         names: function (guests) {
             return (guests || this).filter({asList: true}, function (guest) {
                 return !!guest.get('name');
@@ -89,6 +95,7 @@ YUI.add('le-rsvp', function (Y) {
         events: {
             '[data-edit]'     : {click: 'edit'},
             '[data-done]'     : {click: 'done'},
+            '[data-add-guest]': {click: 'addGuest'},
             '[data-attending]': {click: 'proposeUpdates'},
             'input, textarea' : {blur: 'proposeUpdates'}
         },
@@ -103,9 +110,34 @@ YUI.add('le-rsvp', function (Y) {
         },
 
         done: function (e) {
+            var invitation = this.get('invitation');
+
             if (e) { e.preventDefault(); }
-            this.proposeUpdates();
             this.get('container').removeClass('is-inv-editing');
+
+            invitation.get('guests').plusones().each(function (guest) {
+                if (!guest.get('name')) {
+                    guest.set('is_attending', null);
+                    this.getGuestNode(guest).addClass('guest-available');
+                }
+            }, this);
+
+            this.proposeUpdates();
+        },
+
+        addGuest: function (e) {
+            if (e) { e.preventDefault(); }
+
+            this.get('container').all('.guest').removeClass('guest-available');
+            this.get('invitation').get('guests').plusones()
+                .invoke('set', 'is_attending', true);
+
+            this.edit();
+        },
+
+        getGuestNode: function (guest) {
+            var id = guest.get('id');
+            return this.get('container').one('[data-guest="' + id + '"]');
         },
 
         proposeUpdates: function () {
@@ -140,11 +172,12 @@ YUI.add('le-rsvp', function (Y) {
                 .setHTML(Y.Escape.html(invitation.get('address')));
 
             invitation.get('guests').each(function (guest) {
-                var id   = guest.get('id'),
-                    node = container.one('[data-guest="' + id + '"]'),
-                    is_attending;
+                var node        = this.getGuestNode(guest),
+                    isAttending = guest.get('is_attending');
 
                 if (!node) { return; }
+
+                node.toggleClass('is-guest-attending', isAttending);
 
                 node.one('.guest-title').set('text', guest.get('title'));
                 node.one('[data-title]').set('value', guest.get('title'));
@@ -155,11 +188,10 @@ YUI.add('le-rsvp', function (Y) {
                 node.one('.guest-email').set('text', guest.get('email'));
                 node.one('[data-email]').set('value', guest.get('email'));
 
-                is_attending = guest.get('is_attending');
                 node.one('.guest-attending')
-                    .set('text', is_attending ? 'Attending' : 'Not Attending');
-                node.one('[data-attending]').set('checked', is_attending);
-            });
+                    .set('text', isAttending ? 'Attending' : 'Not Attending');
+                node.one('[data-attending]').set('checked', isAttending);
+            }, this);
         }
     });
 

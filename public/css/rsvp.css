@@ -30,25 +30,21 @@
     border-left: 0;
     border-right: 0;
 }
-.inv-address,
 .inv-guests {
     margin-left: -0.5em;
     margin-right: -0.5em;
 }
-.inv-address-msg,
+.inv-address,
 .inv-address-val,
 .guest {
     width: 100%;
 }
+.inv-address,
 .inv-address-val {
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
-.inv-address-msg p,
-.inv-address-val address,
-.inv-address-val textarea {
-    margin-top: 0;
-}
-.inv-address-val address {
+.inv-address address {
     white-space: pre;
 }
 .inv-address-val textarea {
@@ -56,6 +52,13 @@
     margin: 0 auto 1em;
 }
 
+.guest {
+    margin-bottom: 2em;
+    color: #b0afa6;
+}
+.is-guest-attending {
+    color: inherit;
+}
 .guest-salutation {
     width: 100%;
 }
@@ -79,15 +82,24 @@
 .guest-name-val,
 .guest-email-val,
 .guest-attending-val,
-.inv-address-val textarea,
+.inv-address-val,
 .inv-done {
     display: none;
 }
 
-.inv-ctrls {
+.inv-ctrls,
+.guest-ctrls {
     width: 100%;
     margin: 1em auto;
     text-align: center;
+}
+
+.guest-ctrls,
+.guest-available .guest-details {
+    display: none;
+}
+.guest-available .guest-ctrls {
+    display: block;
 }
 
 .is-inv-editing .guest-title-val,
@@ -97,17 +109,20 @@
     *display: inline;
     zoom: 1;
 }
-.is-inv-editing .inv-address-val textarea,
+.is-inv-editing .inv-address-val,
 .is-inv-editing .guest-email-val,
 .is-inv-editing .guest-attending-val {
     display: block;
 }
-.is-inv-editing .inv-address-val address,
+.is-inv-editing .inv-address,
 .is-inv-editing .guest-salutation,
 .is-inv-editing .guest-email,
 .is-inv-editing .guest-attending,
 .is-inv-editing .inv-edit {
     display: none;
+}
+.is-inv-editing .guest {
+    color: inherit;
 }
 
 /* 480px */
@@ -125,16 +140,20 @@
         margin-bottom: 1em;
     }
 
-    .inv-address,
     .inv-guests {
         margin-left: -1em;
         margin-right: -1em;
     }
-    .inv-address-msg,
+
+    .inv-address,
     .inv-address-val,
     .guest {
         width: 50%;
-        text-align: left;
+    }
+
+    .inv-address,
+    .inv-address-val {
+        text-align: center;
     }
 }
 

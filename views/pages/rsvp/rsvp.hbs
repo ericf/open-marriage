@@ -3,8 +3,10 @@
 <div id="main" role="main">
     <div data-view="rsvp">
         <div class="l-contain">
-            {{setMessageToGuests "Will You Be Attending Our Wedding?"}}
-            {{> rsvp/header}}
+            <h1 class="ann">
+                <span class="ann-primary">{{guestsNames}},</span>
+                <span class="ann-secondary">Will You Be Attending Our Wedding?</span>
+            </h1>
 
             <div class="rsvp">
                 <button data-attending="true" class="rsvp-yes" data-icon="y">

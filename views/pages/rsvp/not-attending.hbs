@@ -3,8 +3,10 @@
 <div id="main" role="main">
     <div data-view="notAttending">
         <div class="l-contain">
-            {{setMessageToGuests "We’re Sorry You Won’t Be Attending."}}
-            {{> rsvp/header}}
+            <h1 class="ann">
+                <span class="ann-primary">{{guestsNames}},</span>
+                <span class="ann-secondary">We’re Sorry You Won’t Be Attending.</span>
+            </h1>
 
             <p>
                 You’ll be missed during the celebration. Please contact us this is a mistake and you will be attending.
