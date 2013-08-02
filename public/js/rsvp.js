@@ -38,7 +38,22 @@ YUI.add('le-rsvp', function (Y) {
     // -- Models ---------------------------------------------------------------
 
     Y.Guest = Y.Base.create('guest', Y.Model, [Y.ModelSync.REST], {
-        root: '/guests/'
+        root: '/guests/',
+
+        mealLabel: function () {
+            var meal = '';
+
+            Y.Array.some(Y.Guest.MEALS, function (mealOption) {
+                if (mealOption.id === this.get('meal')) {
+                    meal = mealOption.label;
+                    return true;
+                }
+            }, this);
+
+            return meal;
+        }
+    }, {
+        MEALS: YUI.Env.LE.MEALS
     });
 
 
@@ -92,11 +107,15 @@ YUI.add('le-rsvp', function (Y) {
     // -- Views ----------------------------------------------------------------
 
     Y.InvitationView = Y.Base.create('invitationView', Y.View, [], {
+        guestNeedsMealMsg: 'Choose which Main Course you would like.',
+        invitationDoneMsg: 'Everything is set with your invitation response.',
+
         events: {
             '[data-edit]'     : {click: 'edit'},
             '[data-done]'     : {click: 'done'},
             '[data-add-guest]': {click: 'addGuest'},
             '[data-attending]': {click: 'proposeUpdates'},
+            '[data-meal]'     : {click: 'proposeUpdates'},
             'input, textarea' : {blur: 'proposeUpdates'}
         },
 
@@ -150,12 +169,21 @@ YUI.add('le-rsvp', function (Y) {
             };
 
             container.all('[data-guest]').each(function (node) {
+                var meal = null;
+
+                node.all('[data-meal]').some(function (mealOption) {
+                    if (mealOption.get('checked')) {
+                        meal = mealOption.get('value');
+                        return true;
+                    }
+                });
+
                 invitation.guests.push({
                     id          : parseInt(node.getData('guest'), 10),
                     title       : node.one('[data-title]').get('value'),
                     name        : node.one('[data-name]').get('value'),
-                    email       : node.one('[data-email]').get('value'),
-                    is_attending: node.one('[data-attending]').get('checked')
+                    is_attending: node.one('[data-attending]').get('checked'),
+                    meal        : meal
                 });
             });
 
@@ -166,7 +194,15 @@ YUI.add('le-rsvp', function (Y) {
 
         syncUI: function () {
             var container  = this.get('container'),
-                invitation = this.get('invitation');
+                invitation = this.get('invitation'),
+                guestsNeedsMeal;
+
+            guestsNeedsMeal = invitation.get('guests').some(function (guest) {
+                return guest.get('is_attending') && !guest.get('meal');
+            });
+
+            container.one('.inv-status').set('text', guestsNeedsMeal ?
+                this.guestNeedsMealMsg : this.invitationDoneMsg);
 
             container.all('address, [data-address]')
                 .setHTML(Y.Escape.html(invitation.get('address')));
@@ -185,12 +221,12 @@ YUI.add('le-rsvp', function (Y) {
                 node.one('.guest-name').set('text', guest.get('name'));
                 node.one('[data-name]').set('value', guest.get('name'));
 
-                node.one('.guest-email').set('text', guest.get('email'));
-                node.one('[data-email]').set('value', guest.get('email'));
-
-                node.one('.guest-attending')
-                    .set('text', isAttending ? 'Attending' : 'Not Attending');
                 node.one('[data-attending]').set('checked', isAttending);
+
+                node.one('.guest-meal span').set('text', guest.mealLabel());
+                node.all('[data-meal]').set('checked', false)
+                    .filter('[value=' + guest.get('meal') + ']')
+                        .set('checked', true);
             }, this);
         }
     });
@@ -378,6 +414,7 @@ YUI.add('le-rsvp', function (Y) {
         'model',
         'model-list',
         'model-sync-rest',
+        'selector-css3',
         'view',
         'promise'
     ]

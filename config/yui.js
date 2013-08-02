@@ -57,6 +57,7 @@ exports.config  = {
                         'model',
                         'model-list',
                         'model-sync-rest',
+                        'selector-css3',
                         'view',
                         'promise'
                     ]

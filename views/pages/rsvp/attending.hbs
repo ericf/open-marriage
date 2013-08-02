@@ -11,30 +11,32 @@
 
       {{#with invitation}}
         <div class="inv l-contain">
+            <p class="inv-header l-grid">
+                <span class="inv-status l-grid-u">
+                    {{../status}}
+                </span>
+
+                <span class="inv-ctrls l-grid-u">
+                    <button class="inv-edit" data-icon="e" data-edit>Edit</button>
+                    <button class="inv-done" data-icon="d" data-done>Done</button>
+                </span>
+            </p>
+
             <div class="inv-guests l-grid">
-              {{#each guests}}
+              {{#guests meals = ../meals}}
                 {{> rsvp/guest}}
-              {{/each}}
+              {{/guests}}
             </div>
 
             <div class="inv-address">
+                <b>Address:</b><br>
                 <address>{{address}}</address>
             </div>
             <div class="inv-address-val">
-                <textarea data-address rows="3">{{address}}</textarea>
-            </div>
-
-            <div class="inv-ctrls">
-                <button class="inv-edit" data-icon="e" data-edit>Edit</button>
-                <button class="inv-done" data-icon="d" data-done>Done</button>
+                <label for="inv-address-val">Address:</label><br>
+                <textarea data-address id="inv-address-val" rows="3">{{address}}</textarea>
             </div>
         </div>
       {{/with}}
-
-        <div class="l-contain">
-            <p>
-                <b>You have RSVP’d for our wedding.</b>
-            </p>
-        </div>
     </div>
 </div>

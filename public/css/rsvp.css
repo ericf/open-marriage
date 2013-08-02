@@ -30,6 +30,24 @@
     border-left: 0;
     border-right: 0;
 }
+.inv-header {
+    margin-bottom: 0;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #e5e5df;
+}
+.inv-status,
+.inv-ctrls {
+    vertical-align: middle;
+}
+.inv-status {
+    /*font-weight: 700;*/
+    width: 75%;
+    padding-right: 1em;
+}
+.inv-ctrls {
+    width: 25%;
+    text-align: right;
+}
 .inv-guests {
     margin-left: -0.5em;
     margin-right: -0.5em;
@@ -43,9 +61,14 @@
 .inv-address-val {
     margin-left: auto;
     margin-right: auto;
+    margin-top: 1em;
 }
 .inv-address address {
     white-space: pre;
+    margin-top: 0;
+}
+.inv-address-val label {
+    font-weight: 700;
 }
 .inv-address-val textarea {
     width: 100%;
@@ -53,14 +76,35 @@
 }
 
 .guest {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     color: #b0afa6;
 }
 .is-guest-attending {
     color: inherit;
 }
+.guest h2 {
+    margin-bottom: 0;
+}
 .guest-salutation {
     width: 100%;
+    position: relative;
+}
+.guest-salutation:before {
+    content: none;
+}
+.guest-salutation:after {
+    content: "n";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    font-size: 1.3333em;
+    line-height: 0.5;
+    padding: 0.125em 0 0 0.25em;
+}
+.is-guest-attending .guest-salutation:after {
+    content: "y";
+    color: #75AB81;
 }
 .guest-attending {
     font-weight: 700;
@@ -73,21 +117,31 @@
     width: 75%;
 }
 .guest-title-val input,
-.guest-name-val input,
-.guest-email-val input {
+.guest-name-val input {
     width: 100%;
+}
+.guest-meal {
+    margin-top: 0;
+}
+/*.guest-meal-val label {
+    width: 33%;
+}*/
+.guest-meal-val-label {
+    margin-right: 1em;
+}
+.guest-meal-val label:last-child .guest-meal-val-label {
+    margin-right: 0;
 }
 
 .guest-title-val,
 .guest-name-val,
-.guest-email-val,
 .guest-attending-val,
+.guest-meal-val,
 .inv-address-val,
 .inv-done {
     display: none;
 }
 
-.inv-ctrls,
 .guest-ctrls {
     width: 100%;
     margin: 1em auto;
@@ -110,14 +164,14 @@
     zoom: 1;
 }
 .is-inv-editing .inv-address-val,
-.is-inv-editing .guest-email-val,
-.is-inv-editing .guest-attending-val {
+.is-inv-editing .guest-attending-val,
+.is-inv-editing .guest-meal-val {
     display: block;
 }
 .is-inv-editing .inv-address,
 .is-inv-editing .guest-salutation,
-.is-inv-editing .guest-email,
 .is-inv-editing .guest-attending,
+.is-inv-editing .guest-meal,
 .is-inv-editing .inv-edit {
     display: none;
 }

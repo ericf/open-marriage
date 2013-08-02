@@ -74,7 +74,8 @@ textarea:focus {
 .l-grid {
     word-spacing: -0.43em;
 }
-.l-grid-u {
+.l-grid-u,
+.l-grid-u-full {
     display: inline-block;
     zoom: 1; *display: inline;
     letter-spacing: normal;
@@ -86,6 +87,7 @@ textarea:focus {
     margin-left: -0.5em;
     margin-right: -0.5em;
 }
+.l-grid-u-full,
 .l-grid-1-2 > .l-grid-u {
     width: 100%;
 }

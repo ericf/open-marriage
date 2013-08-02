@@ -1,7 +1,7 @@
 <div class="guest {{guestAvailable}} {{guestAttending}} l-contain l-grid-u" data-guest="{{id}}">
     <div class="guest-details">
         <h2 class="l-grid">
-            <span class="guest-salutation l-grid-u">
+            <span class="guest-salutation l-grid-u" data-icon>
                 <span class="guest-title">{{title}}</span>
                 <span class="guest-name">{{name}}</span>
             </span>
@@ -14,23 +14,22 @@
             </span>
         </h2>
 
-        <p class="guest-email">{{email}}</p>
-        <p class="guest-email-val">
-            <input type="text" value="{{email}}" placeholder="Email" data-email>
-        </p>
-
-        <p class="guest-attending">
-          {{#if is_attending}}
-            Attending
-          {{else}}
-            Not Attending
-          {{/if}}
-        </p>
         <p class="guest-attending-val">
             <label>
                 <input type="checkbox" data-attending {{#if is_attending}}checked{{/if}}>
                 Is Attending
             </label>
+        </p>
+
+        <p class="guest-meal"><b>Main Course:</b> <span>{{guestMeal}}</span></p>
+        <p class="guest-meal-val l-grid">
+            <b class="l-grid-u-full">Main Course:</b>
+          {{#each mealOptions}}
+            <label class="l-grid-u">
+                <input type="radio" data-meal name="guest-meal-{{../id}}" value="{{id}}" {{isGuestMeal ../meal}}>
+                <span class="guest-meal-val-label">{{label}}</span>
+            </label>
+          {{/each}}
         </p>
     </div>
 
