@@ -41,11 +41,11 @@
 }
 .inv-status {
     /*font-weight: 700;*/
-    width: 75%;
+    width: 66.6667%;
     padding-right: 1em;
 }
 .inv-ctrls {
-    width: 25%;
+    width: 33.3333%;
     text-align: right;
 }
 .inv-guests {
@@ -192,6 +192,15 @@
         font-size: 2em;
         margin-top: 1em;
         margin-bottom: 1em;
+    }
+
+    .inv-status {
+        /*font-weight: 700;*/
+        width: 75%;
+        padding-right: 1em;
+    }
+    .inv-ctrls {
+        width: 25%;
     }
 
     .inv-guests {
