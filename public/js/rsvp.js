@@ -95,6 +95,22 @@ YUI.add('le-rsvp', function (Y) {
             this.guests = new Y.Guests({bubbleTargets: this});
         },
 
+        confirm: function () {
+            var url = this.getURL() + 'confirm';
+
+            return new Y.Promise(function (resolve, reject) {
+                Y.io.queue(url, {
+                    method : 'POST',
+                    headers: {'X-CSRF-Token': YUI.Env.CSRF_TOKEN},
+
+                    on: {
+                        failure: reject,
+                        success: resolve
+                    }
+                });
+            });
+        },
+
         _setGuests: function (guests) {
             return this.guests.reset(guests);
         }
@@ -141,7 +157,7 @@ YUI.add('le-rsvp', function (Y) {
                 }
             }, this);
 
-            this.proposeUpdates();
+            this.proposeUpdates({src: 'done'});
         },
 
         addGuest: function (e) {
@@ -159,7 +175,7 @@ YUI.add('le-rsvp', function (Y) {
             return this.get('container').one('[data-guest="' + id + '"]');
         },
 
-        proposeUpdates: function () {
+        proposeUpdates: function (e) {
             var container = this.get('container'),
                 invitation;
 
@@ -188,6 +204,7 @@ YUI.add('le-rsvp', function (Y) {
             });
 
             this.fire('invitationUpdate', {
+                src    : e && e.src,
                 updates: invitation
             });
         },
@@ -331,7 +348,14 @@ YUI.add('le-rsvp', function (Y) {
         }
 
         return this.saveInvitation().then(function () {
-            app.replace('');
+            if (isAttending) {
+                app.needsConfirmation = true;
+                app.replace('');
+            } else {
+                app.invitation.confirm().then(function () {
+                    app.replace('');
+                });
+            }
         });
     };
 
@@ -390,7 +414,12 @@ YUI.add('le-rsvp', function (Y) {
     });
 
     app.on('*:invitationUpdate', function (e) {
-        this.updateInvitation(e.updates);
+        this.updateInvitation(e.updates).then(function () {
+            if (e.src === 'done' && app.needsConfirmation) {
+                app.needsConfirmation = false;
+                app.invitation.confirm();
+            }
+        });
     });
 
     app.render().showContent(app.initialContent, {

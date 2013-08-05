@@ -7,6 +7,19 @@
     color: #f2c63d;
 }
 
+.resend-email,
+.resend-submit {
+    width: 100%;
+    text-align: center;
+}
+.resend-email {
+    margin-bottom: 1em;
+}
+.resend-email input {
+    font-size: 1.5em;
+    width: 100%;
+}
+
 .rsvp {
     text-align: center;
 }
@@ -188,6 +201,10 @@
 
 /* 576px */
 @media screen and (min-width: 36em) {
+    .resend-email input {
+        width: 75%;
+    }
+
     .rsvp .rsvp-yes {
         font-size: 2em;
         margin-top: 1em;
@@ -222,6 +239,10 @@
 
 /* 768px */
 @media screen and (min-width: 48em) {
+    .resend-email input {
+        width: 62%;
+    }
+
     .rsvp .rsvp-yes {
         width: 62%;
     }

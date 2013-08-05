@@ -108,13 +108,15 @@ app.get('/logistics/outings/', routes.render('logistics/outings'));
 
 app.get('/registry/', routes.render('registry'));
 
-app.get('/rsvp/',                routes.rsvp.edit);
-app.get('/rsvp/:invitation_key', routes.rsvp.login);
+app.get( '/rsvp/',                routes.rsvp.pub, routes.rsvp.edit);
+app.post('/rsvp/',                routes.rsvp.resend);
+app.get( '/rsvp/:invitation_key', routes.rsvp.login);
 
-app.all( '/invitations/:invitation/*',      middleware.auth.ensureInvitation);
-app.get( '/invitations/:invitation/',       routes.invitations.read);
-app.put( '/invitations/:invitation/',       routes.invitations.update);
-app.get( '/invitations/:invitation/guests', routes.invitations.readGuests);
+app.all( '/invitations/:invitation/*',       middleware.auth.ensureInvitation);
+app.get( '/invitations/:invitation/',        routes.invitations.read);
+app.put( '/invitations/:invitation/',        routes.invitations.update);
+app.get( '/invitations/:invitation/guests',  routes.invitations.readGuests);
+app.post('/invitations/:invitation/confirm', routes.invitations.confirm);
 
 app.all('/guests/:guest/', middleware.auth.ensureGuest);
 app.get('/guests/:guest/', routes.guests.read);

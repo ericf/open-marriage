@@ -1,10 +1,41 @@
 {{setPageTitle "RSVP"}}
 {{setActiveNav "rsvp"}}
+{{addCSS "/css/rsvp.css"}}
 
 <div class="l-contain">
     <h1>RSVP for Our Wedding</h1>
 
-    <p>
-        All invited guests will be able to respond to their invitations here on our website. <b>Soon guests will receive an email from us with a special link to this page</b>, allowing them to respond online. Eric is dedicated to building the best invitation system he possibly can :)
+    <p class="callout">
+        To respond to your invitiation to our wedding, you’ll need to follow the special link which was emailed to you.
     </p>
+
+    <h2>Resend Email with Special RSVP Link</h2>
+
+  {{#resent}}
+    <p>
+      {{#if needsEmail}}
+        Please enter your email address.
+      {{/if}}
+
+      {{#if notGuest}}
+        We do not have your email address (<b>{{notGuest}}</b>). Please email us and we’ll send your special RSVP link: <b><a href="mailto:rsvp@leslie-eric.us">rsvp@leslie-eric.us</a></b>
+      {{/if}}
+
+      {{#if sent}}
+        Your special RSVP link has been sent to: <b>{{sent}}</b>
+      {{/if}}
+    </p>
+  {{/resent}}
+
+    <form class="resend l-grid" action="/rsvp/" method="POST">
+        <input type="hidden" name="_csrf" value="{{_csrf}}">
+
+        <div class="resend-email l-grid-u">
+            <input type="email" name="email" placeholder="Your Email">
+        </div>
+
+        <div class="resend-submit l-grid-u">
+            <button type="submit" data-icon="s">Resend RSVP Link</button>
+        </div>
+    </form>
 </div>
