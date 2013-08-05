@@ -13,7 +13,7 @@ if (output) {
     process.exit(1);
 }
 
-console.log('Querying database...');
+console.log('Loading invitations from database...');
 invs.loadInvitations(function (err, invitations) {
     if (err) { throw err; }
 
