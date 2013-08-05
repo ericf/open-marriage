@@ -34,6 +34,7 @@
         "express-state"      : "latest",
         "express3-handlebars": "latest",
         "handlebars"         : "1.0.x",
-        "pg"                 : "1.1.x"
+        "pg"                 : "1.1.x",
+        "request"            : "2.25.0"
     }
 }

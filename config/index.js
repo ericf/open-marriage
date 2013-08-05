@@ -23,11 +23,22 @@ config = {
 
     invitationSecret: env.INVITATION_SECRET,
 
+    mailgun: {
+        endpint: env.MAILGUN_API_SERVER + '/',
+        domain : env.MAILGUN_DOMAIN,
+        secret : env.MAILGUN_API_KEY
+    },
+
+    email: {
+        from: 'Leslie & Eric <rsvp@leslie-eric.us>'
+    },
+
     dirs: {
         pub     : path.resolve('public/'),
         views   : path.resolve('views/pages/'),
         layouts : path.resolve('views/layouts/'),
-        partials: path.resolve('views/partials/')
+        partials: path.resolve('views/partials/'),
+        emails  : path.resolve('views/emails/')
     },
 
     version: require('../package').version,
