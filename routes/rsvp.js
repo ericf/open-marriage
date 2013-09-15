@@ -80,7 +80,7 @@ function edit(req, res) {
     res.expose(guests.MEALS, 'MEALS');
 
     if (!invitation.rsvpd) {
-        return res.render('rsvp/rsvp');
+        return res.render('rsvp/respond');
     }
 
     guestsAttending = invitation.guests.some(function (guest) {
