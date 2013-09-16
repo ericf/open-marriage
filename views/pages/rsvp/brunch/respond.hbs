@@ -1,0 +1,29 @@
+{{setPageTitle "RSVP for Brunch"}}
+{{setActiveNav "rsvp"}}
+{{addCSS "/css/rsvp.css"}}
+
+<div class="l-contain">
+    <h1 class="ann">
+        <span class="ann-primary">{{guestsNames html=true}},</span>
+        <span class="ann-secondary">
+            Let Us Know If You Can't Attend Brunch on Sunday, October 6th&hellip;
+        </span>
+    </h1>
+
+    <p>
+        An informal buffet of bagels and fixings will be served at the home of Steve and Minda Goldberg (the same location as the wedding) on <b>Sunday morning</b>. Stop by anytime between 11am and 1pm, before you head out of town.
+    </p>
+
+    <p>
+        We would appreciate if you would RSVP, <b>regrets only</b>, if you know you <em>won't</em> be attending the brunch.
+    </p>
+
+    <form class="rsvp" action="/rsvp/brunch/" method="POST">
+        <input type="hidden" name="_csrf" value="{{_csrf}}">
+
+        <button type="sbumit" name="not-attending" value="true"
+                class="is-button-negative" data-icon="n">
+            Won't Be Attending Brunch
+        </button>
+    </form>
+</div>

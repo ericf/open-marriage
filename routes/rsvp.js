@@ -1,4 +1,7 @@
-var error        = require('../lib/utils').error,
+var async = require('async'),
+    path  = require('path'),
+
+    error        = require('../lib/utils').error,
     sendRsvpLink = require('../lib/email').sendRsvpLink,
     invs         = require('../lib/invitations'),
     guests       = require('../lib/guests');
@@ -7,6 +10,7 @@ exports.pub    = pub;
 exports.resend = resend;
 exports.login  = login;
 exports.edit   = edit;
+exports.brunch = brunch;
 
 function pub(req, res, next) {
     if (req.invitation) {
@@ -67,8 +71,9 @@ function login(req, res, next) {
             return next(err);
         }
 
+        // Set the invitation on the session and redirect up one path level.
         req.session.invitation = invitationId;
-        res.redirect('/rsvp/');
+        res.redirect(path.resolve(req.path, '..') + '/');
     });
 }
 
@@ -99,5 +104,36 @@ function edit(req, res) {
         res.render('rsvp/attending');
     } else {
         res.render('rsvp/not-attending');
+    }
+}
+
+function brunch(req, res) {
+    var notAttending;
+
+    if (!req.invitation) {
+        return res.render('rsvp/brunch/public');
+    }
+
+    if (req.method === 'POST') {
+        async.each(req.invitation.guests, function (guest, callback) {
+            guests.updateGuest(guest.id, {
+                is_attending_brunch: !req.body.hasOwnProperty('not-attending')
+            }, callback);
+        }, function (err) {
+            if (err) { return next(err); }
+            res.redirect(req.path);
+        });
+
+        return;
+    }
+
+    notAttending = req.invitation.guests.some(function (guest) {
+        return !guest.is_attending_brunch;
+    });
+
+    if (notAttending) {
+        res.render('rsvp/brunch/not-attending');
+    } else {
+        res.render('rsvp/brunch/respond');
     }
 }
