@@ -44,6 +44,6 @@ YUI.add('le-wedding', function (Y) {
     centerCal();
     Y.one('win').on(['orientationchange', 'windowresize'], centerCal);
 
-}, '1.7.1', {
+}, '1.7.2', {
     requires: ['le-main', 'le-maps', 'event-resize', 'graphics']
 });
