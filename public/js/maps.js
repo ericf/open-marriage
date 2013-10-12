@@ -21,6 +21,6 @@ YUI.add('le-maps', function (Y) {
         });
     });
 
-}, '1.6.1', {
+}, '1.7.0', {
     requires: ['node-base', 'mapbox']
 });
