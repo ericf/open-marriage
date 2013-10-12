@@ -13,6 +13,11 @@ exports.edit   = edit;
 exports.brunch = brunch;
 
 function pub(req, res, next) {
+    if (req.afterWedding) {
+        delete req.session.invitation;
+        return res.render('rsvp/after');
+    }
+
     if (req.invitation) {
         return next();
     }
@@ -25,6 +30,11 @@ function pub(req, res, next) {
 
 function resend(req, res, next) {
     var email = req.body.email.trim();
+
+    // Always redirect to "/rsvp/" after the wedding.
+    if (req.afterWedding) {
+        return res.redirect('/rsvp/');
+    }
 
     if (!email) {
         req.session.resent = {needsEmail: true};
@@ -57,6 +67,13 @@ function resend(req, res, next) {
 
 function login(req, res, next) {
     var invitationId;
+
+    // Prevent RSVP logins after the wedding has happened, and _always_ redirect
+    // to "/rsvp/".
+    if (req.afterWedding) {
+        delete req.session.invitation;
+        return res.redirect('/rsvp/');
+    }
 
     try {
         invitationId = invs.decipherId(req.params.invitation_key);
@@ -109,6 +126,11 @@ function edit(req, res) {
 
 function brunch(req, res) {
     var notAttending;
+
+    // Always redirect to "/rsvp/" after the wedding.
+    if (req.afterWedding) {
+        return res.redirect('/rsvp/');
+    }
 
     if (!req.invitation) {
         return res.render('rsvp/brunch/public');
