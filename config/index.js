@@ -24,7 +24,7 @@ config = {
     invitationSecret: env.INVITATION_SECRET,
 
     mailgun: {
-        endpint: env.MAILGUN_API_SERVER + '/',
+        endpint: env.MAILGUN_API_SERVER && (env.MAILGUN_API_SERVER + '/'),
         domain : env.MAILGUN_DOMAIN,
         secret : env.MAILGUN_API_KEY
     },
