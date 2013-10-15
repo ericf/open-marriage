@@ -10,6 +10,11 @@ easiest RSVP system known to man. Since no other wedding website can compare to
 ours, I thought it would be nice to share what I built and open source our
 marriage [website].
 
+It should be obvious that this project is for a *very specific wedding*, my
+wedding, and it probably won't work well for your wedding (unless you and your
+fiancé are named Leslie and Eric). But hey, if you're building a website for
+your wedding you can use this project as the high bar of excellence :)
+
 
 Built With
 ----------
