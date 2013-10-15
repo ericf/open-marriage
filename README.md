@@ -1,17 +1,14 @@
 Open Marriage
 =============
 
-The open source website for Leslie Verploegen's and Eric Ferraiuolo's wedding:
-http://leslie-eric.us/
+**The open source website for Leslie Verploegen's and Eric Ferraiuolo's wedding:
+<http://leslie-eric.us/>**
 
 Wedding planning is stressful and so is dealing with shitting wedding websites,
 I wanted to eliminate one of these so I built the best looking wedding website
 and easiest RSVP system known to man. Since no other wedding website can compare
 to ours, I thought it would be nice to share what I built and open source our
 marriage [website].
-
-
-----
 
 
 Built With
