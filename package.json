@@ -1,11 +1,13 @@
 {
     "name"       : "leslie-eric.us",
-    "description": "The official website for Leslie Verloegen's and Eric Ferraiuolo's wedding.",
+    "description": "The open source website for Leslie Verploegen's and Eric Ferraiuolo's wedding.",
     "homepage"   : "http://leslie-eric.us/",
     "version"    : "1.7.2",
     "private"    : true,
 
     "author": "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
+
+    "license": "MIT",
 
     "directories": {
         "lib"       : "./lib",
