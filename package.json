@@ -25,6 +25,7 @@
 
     "dependencies": {
         "async"              : "0.2.x",
+        "bower"              : "1.2.x",
         "combohandler"       : "0.2.x",
         "csv"                : "0.3.x",
         "db-migrate"         : "0.4.x",
@@ -36,5 +37,9 @@
         "handlebars"         : "1.0.x",
         "pg"                 : "1.1.x",
         "request"            : "2.25.0"
+    },
+
+    "scripts": {
+        "install": "./node_modules/bower/bin/bower install"
     }
 }
