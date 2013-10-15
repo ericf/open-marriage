@@ -42,6 +42,7 @@
     },
 
     "scripts": {
-        "install": "./node_modules/bower/bin/bower install"
+        "install": "./node_modules/bower/bin/bower install",
+        "migrate-up": "./node_modules/db-migrate/bin/db-migrate up -e default --config config/migrations.json"
     }
 }
