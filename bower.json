@@ -1,6 +1,7 @@
 {
     "name"   : "leslie-eric.us",
     "version": "1.7.2",
+    "private": true,
 
     "dependencies": {
         "hide-address-bar": "git://github.com/scottjehl/Hide-Address-Bar.git",
