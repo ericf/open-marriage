@@ -1,6 +1,6 @@
 {
   "name": "leslie-eric.us",
-  "version": "1.7.2",
+  "version": "1.8.0",
   "dependencies": {
     "async": {
       "version": "0.2.7",
@@ -780,13 +780,13 @@
       "version": "0.2.2",
       "from": "cryptiles@0.2.2"
     },
-    "glob": {
-      "version": "3.2.6",
-      "from": "glob@3.2.6"
-    },
     "forever-agent": {
       "version": "0.5.0",
       "from": "forever-agent@0.5.0"
+    },
+    "glob": {
+      "version": "3.2.6",
+      "from": "glob@3.2.6"
     },
     "inherits": {
       "version": "2.0.1",
