@@ -16,6 +16,16 @@ fiancé are named Leslie and Eric). But hey, if you're building a website for
 your wedding you can use this project as the high bar of excellence :)
 
 
+Clone and Deploy to Heroku
+--------------------------
+
+An easy way to start working with the project is to click the button below which
+will clone this project and deploy a working app to Heroku, all pre-configured
+and ready to roll! Of course you'll need to make some major altar-ations :)
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ericf/open-marriage)
+
+
 Built With
 ----------
 
