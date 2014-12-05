@@ -1,0 +1,53 @@
+{
+  "name": "Open Marriage",
+  "description": "The open source website for Leslie Verploegen's and Eric Ferraiuolo's wedding",
+  "keywords": [
+    "wedding",
+    "website",
+    "node"
+  ],
+  "addons": [
+    "heroku-postgresql:dev",
+    "pgbackups:auto-month",
+    "adminium:petproject"
+  ],
+  "env": {
+    "PATH": "bin:node_modules/.bin:/usr/local/bin:/usr/bin:/bin",
+    "NODE_ENV": {
+      "description": "Signals to app to run in development or production mode.",
+      "value": "production"
+    },
+    "WEB": {
+      "description": "The command to run to start the app.",
+      "value": "node server.js"
+    },
+    "INVITATION_SECRET": {
+      "description": "Secret string used to encrypt/decrypt the invitation IDs.",
+      "generator": "secret"
+    },
+    "SESSION_SECRET": {
+      "description": "Secret string used to encrypt/decrypt the session cookie.",
+      "generator": "secret"
+    },
+    "MAILGUN_API_SERVER": {
+      "description": "Mailgun API endpoint.",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun domain associated with your Mailgun account.",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Secret string used to sign Mailgun HTTP requests.",
+      "required": false
+    },
+    "PICTOS": {
+      "description": "ID of Pictos server icon font set.",
+      "required": false
+    },
+    "TYPEKIT": {
+      "description": "ID of Typekit set.",
+      "required": false
+    }
+  }
+}
