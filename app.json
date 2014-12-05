@@ -7,7 +7,7 @@
     "node"
   ],
   "addons": [
-    "heroku-postgresql:dev",
+    "heroku-postgresql:hobby-dev",
     "pgbackups:auto-month",
     "adminium:petproject"
   ],
